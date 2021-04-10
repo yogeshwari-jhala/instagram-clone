@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+}
+.App{
+  background-color: wheat;
+}
+.app__headerImage{
+  height: 10%;
+  width:10%;
+  padding:20px;
+  border-radius: 30px;
+}
+.app__signup img{
+  height: 200px;
+  width: 300px;
+}
+.app__signup{
+  flex-direction: column;
+}
