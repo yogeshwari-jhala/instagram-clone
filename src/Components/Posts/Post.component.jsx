@@ -13,7 +13,7 @@ const Post = (props) => {
             src="/static/images/avatar/1.jpg" />
             <h3>{props.username}</h3>
             </div>
-            <img className="post__image" src={props.imageUrl}/>
+            <img className="post__image" src={props.imageUrl} alt={props.imageUrl}/>
             <h4 className="post__text"><strong>{props.username}</strong>{props.caption}</h4>
             
         </div>

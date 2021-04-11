@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import React ,{useEffect, useState} from 'react';
 import { Button, Input } from '@material-ui/core';
 
-import Logo from './instalogo.png'
+import Logo from './assets/instalogo.png'
 import Post from './Components/Posts/Post.component.jsx'
 
 import {auth, db} from './firebase';
