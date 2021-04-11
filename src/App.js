@@ -198,10 +198,6 @@ const signIn = (event) => {
             <Post key={id} username={post.username}  caption={post.caption} imageUrl={post.imageUrl}/>
           ))
         }
-        {/* <Post username="yogeshwarijhala" caption=": Well It works" imageUrl={Suresh}/>
-        <Post username="Deepu" caption=": Yes it also worked" imageUrl={Ramesh}/>
-        <Post username="Akanksha" caption=": I am doing this work " imageUrl={Suresh}/>
-        <Post username="Day" caption=": Three of us" imageUrl={Ramesh}/> */}
     </div>
     
   );
