@@ -8,6 +8,7 @@ import Logo from './assets/instalogo.png'
 import Post from './Components/Posts/Post.component.jsx'
 
 import {auth, db} from './firebase';
+import ImageUpload from './Components/ImageUpload';
 
 function getModalStyle() {
   const top = 50 ;
@@ -103,6 +104,12 @@ const signIn = (event) => {
 }
   return (
     <div className="App">
+      {user?.displayName?(
+        <ImageUpload username={user.displayName}/>):
+        (
+          <h3>Sorry Login to upload</h3>
+      )}
+      
       <Modal  
         open={open}
         onClose={() => setOpen(false)}
