@@ -8,7 +8,7 @@ import Logo from './assets/instalogo.png'
 import Post from './Components/Posts/Post.component.jsx'
 
 import {auth, db} from './repository/Firestore/config.firebase';
-import ImageUpload from './Components/ImageUpload';
+import ImageUpload from './Components/ImageUpload/ImageUpload.component';
 
 function getModalStyle() {
   const top = 50 ;
