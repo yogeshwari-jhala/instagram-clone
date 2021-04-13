@@ -39,7 +39,7 @@ function ImageUpload(username) {
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               caption: caption,
               imageUrl: url,
-              username: username,
+              username: username.username,
             });
             setProgress(0);
             setCaption("");

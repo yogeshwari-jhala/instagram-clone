@@ -65,6 +65,7 @@ function App() {
   useEffect(() => {
     // This is where the code runs
     db.collection('posts').onSnapshot(snapshot => {
+      snapshot.docs.map(doc => {console.log(doc)})
       // every time a new post is added, this code fires up
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
@@ -198,7 +199,7 @@ const signIn = (event) => {
         <h1>Hello welcome to my instagram</h1>
         {
           posts.map(({id, post} ) =>(
-            <Post key={id} username={post.username}  caption={post.caption} imageUrl={post.imageUrl}/>
+            <Post key={id}   caption={post.caption} imageUrl={post.imageUrl}/>
           ))
         }
     </div>
