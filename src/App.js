@@ -64,7 +64,7 @@ function App() {
   }, [user, username]);
   useEffect(() => {
     // This is where the code runs
-    db.collection('posts').onSnapshot(snapshot => {
+    db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot => {
       // every time a new post is added, this code fires up
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
@@ -186,7 +186,6 @@ const signIn = (event) => {
       </Modal>
       <div className="app__header">
         <img className="app__headerImage" src={Logo} alt="InstagramLogo"/>
-        </div>
         {user? (
         <Button onClick={() => auth.signOut()}>LogOut</Button>
         ):
@@ -195,10 +194,12 @@ const signIn = (event) => {
           <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
         <Button onClick={() => setOpen(true)}>Sign Up</Button>
         </div>)}
+        </div>
+        
         <h1>Hello welcome to my instagram</h1>
         {
           posts.map(({id, post} ) =>(
-            <Post key={id}   caption={post.caption} imageUrl={post.imageUrl}/>
+            <Post key={id}  username={post.username}  caption={post.caption} imageUrl={post.imageUrl} />
           ))
         }
     </div>
