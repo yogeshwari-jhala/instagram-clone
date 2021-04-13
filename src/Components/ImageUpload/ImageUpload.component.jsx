@@ -7,7 +7,6 @@ function ImageUpload(username) {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [imageAsUrl, setImageAsUrl] = useState("");
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -17,7 +16,7 @@ function ImageUpload(username) {
 
   const handleUpload = () => {
     console.log("upload");
-    const uploadTask = storage.ref("images/${image.name}").put(image);
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "statechanged",
       (snapshot) => {
