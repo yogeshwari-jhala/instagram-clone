@@ -65,7 +65,6 @@ function App() {
   useEffect(() => {
     // This is where the code runs
     db.collection('posts').onSnapshot(snapshot => {
-      snapshot.docs.map(doc => {console.log(doc)})
       // every time a new post is added, this code fires up
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
