@@ -7,7 +7,7 @@ import { Button, Input } from '@material-ui/core';
 import Logo from './assets/instalogo.png'
 import Post from './Components/Posts/Post.component.jsx'
 
-import {auth, db} from './firebase';
+import {auth, db} from './repository/Firestore/config.firebase';
 import ImageUpload from './Components/ImageUpload';
 
 function getModalStyle() {
