@@ -1,14 +1,23 @@
-## Hi there <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30px">, I am Yogeshwari Jhala!
+## Installation
 
-![GitHub followers](https://img.shields.io/github/followers/yogeshwari-jhala?style=social)
+Open the project and run `npm install` to install all the dependencies and you can get started.
 
+We are using 2 frontend designing plugins : 
 
-### Tools & Technologies I have worked on
-<img src="https://cdn.worldvectorlogo.com/logos/html5.svg" alt="HTML5 Logo" width="50" height="50"/> <img src="https://cdn.worldvectorlogo.com/logos/logo-javascript.svg" alt="JavaScript Logo" width="50" height="50"/>
+[SCSS]
 
+[Bootstrap]
 
-### &#x1f4c8; My GitHub Stats
+[React-Bootstrap]
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=yogeshwari-jhala&langs_count=6&hide=tsql&layout=compact&theme=radical)](https://github.com/anuraghazra/github-readme-stats)   
+## Available Scripts
 
-[![yogeshwari-jhala's GitHub stats](https://github-readme-stats.vercel.app/api?username=yogeshwari-jhala&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
