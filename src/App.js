@@ -10,6 +10,7 @@ import Post from './Components/Posts/Post.component.jsx'
 import {auth, db} from './repository/Firestore/config.firebase';
 import ImageUpload from './Components/ImageUpload/ImageUpload.component';
 
+import { Login } from "./Components/Login/index";
 function getModalStyle() {
   const top = 50 ;
   const left = 50 ;
@@ -103,6 +104,7 @@ const signIn = (event) => {
 }
   return (
     <div className="App">
+      <Login/>
       {user?.displayName?(
         <ImageUpload username={user.displayName}/>):
         (
