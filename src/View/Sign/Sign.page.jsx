@@ -1,6 +1,6 @@
 import React from 'react'
 
-class SignUp extends React.Component{
+class SignUpPage extends React.Component{
     render(){
         return(
             <div/>
@@ -8,7 +8,7 @@ class SignUp extends React.Component{
     }
 }
 
-class SignIn extends React.Component{
+class SignInPage extends React.Component{
     render(){
         return(
             <div/>
@@ -16,4 +16,4 @@ class SignIn extends React.Component{
     }
 }
 
-export {SignIn, SignUp}
+export {SignInPage, SignUpPage}
