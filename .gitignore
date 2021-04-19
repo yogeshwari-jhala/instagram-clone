@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 
+/src/OldComponent
 /src/OldComponent/repository/Firestore/config.firebase.js
 # testing
 /coverage
