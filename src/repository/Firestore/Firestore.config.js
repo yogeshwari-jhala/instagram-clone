@@ -1,4 +1,7 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
+import 'firebase/firestore';
+import 'firebase/storage';
+import 'firebase/auth';
 
 const firebaseApp = firebase.initializeApp({
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -11,9 +14,12 @@ const firebaseApp = firebase.initializeApp({
     measurementId: "G-FRDRZHRHXS"
 });
 
-
 const db = firebaseApp.firestore();
 const auth = firebase.auth();
 const storage = firebase.storage();
 
-export { db, auth, storage };
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+const ProvidersEnum = Object.freeze({"google": googleProvider});
+
+export { db, auth, storage, ProvidersEnum };
+export default firebase;

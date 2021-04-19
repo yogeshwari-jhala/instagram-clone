@@ -1,13 +1,19 @@
 import React from 'react'
 
-
-class Sign extends React.Component{
-    constructor (props) {
-        super(props)
-        this.state = {
-
-        }
+class SignUp extends React.Component{
+    render(){
+        return(
+            <div/>
+        )
     }
 }
 
-export default Sign
+class SignIn extends React.Component{
+    render(){
+        return(
+            <div/>
+        )
+    }
+}
+
+export {SignIn, SignUp}
