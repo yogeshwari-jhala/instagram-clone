@@ -1,23 +1,23 @@
 import React from 'react'
-import {SignInPage, SignUpPage} from './Sign.page'
+import SignInPage from './Sign.page'
 
-class Sign extends React.Component{
+class Page extends React.Component{
     constructor (props) {
         super(props)
         this.state = {
-            page: SignInPage
+            // page: SignInPage
         }
     }
 
-    togglePage(){
-        this.setState({page: this.state.page===SignInPage ? SignUpPage : SignInPage})
-    }
+    // togglePage(){
+    //     this.setState({page: this.state.page===SignInPage ? SignUpPage : SignInPage})
+    // }
 
     render(){
         return(
-            <div/>
+            <SignInPage/>
         )
     }
 }
 
-export default Sign
+export default Page
