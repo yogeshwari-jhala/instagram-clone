@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import LoginImage from "../../OldComponent/assets/instalogo.png";
+import LoginImage from "../../../OldComponent/assets/instalogo.png";
 import './Login.style.scss'
 class SignUpPage extends React.Component{
     render(){
