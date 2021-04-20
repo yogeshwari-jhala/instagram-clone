@@ -1,0 +1,182 @@
+@import url('../color.style.scss');
+
+$label-size: 14px;
+$text-padding: 36px 16px 16px 16px;
+
+body {
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.login-form {
+  width: 100vh;
+  height: 100vh;
+  background: $none;
+  height: auto;
+  padding: 5% 3%;
+  border-radius: 3%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+
+.field {
+  width: 100%;
+  height: auto;
+  position: relative;
+  transition: 0.3s background-color ease-in-out, 0.3s box-shadow ease-in-out;
+  border-bottom: 2px solid $pink;
+  margin: 10px 0px 0px 0px;
+
+  input {
+    width: 100%;
+    height: 46px;
+    position: relative;
+    padding: 4px 16px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    color: $gray-dark;
+    outline: none;
+    box-shadow: 0px 4px 20px 0px transparent;
+    -webkit-appearance: none;
+  }
+
+  input + label {
+    position: absolute;
+    top: 24px;
+    left: 16px;
+    font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+    font-size: $label-size;
+    font-weight: 600;
+    line-height: 24px;
+    color: $none;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.1s all ease-in-out;
+
+    &::placeholder {
+      visibility: hidden;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    height: 75px;
+    position: relative;
+    padding: 16px 16px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    color: $gray-dark;
+    outline: none;
+    box-shadow: 0px 4px 20px 0px transparent;
+  }
+
+  textarea + label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: "Gotham SSm A", "Gotham SSm B", sans-serif;
+    font-size: $label-size;
+    font-weight: 600;
+    line-height: normal;
+    color: $none;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.1s all ease-in-out;
+
+    &::placeholder {
+      visibility: hidden;
+    }
+  }
+
+}
+
+.field.active {
+  border-bottom: 2px solid $pink3;
+  transition: 0.5s ease-in;
+  input {
+    padding: $text-padding;
+    &::placeholder {
+      visibility: hidden;
+    }
+  }
+
+  textarea {
+    padding: $text-padding;
+    resize: vertical;
+    &::placeholder {
+      padding: 24px 16px 4px 16px;
+      visibility: hidden;
+    }
+  }
+}
+
+.field.active {
+  input + label {
+    top: 4px;
+    opacity: 1;
+    color: $gray-dark;
+  }
+
+  textarea + label {
+    top: 4px;
+    opacity: 1;
+    color: $gray-dark;
+  }
+}
+
+.field.locked {
+  pointer-events: none;
+}
+
+.field {
+  input::placeholder {
+    color: $gray;
+  }
+
+  textarea::placeholder {
+    color: $gray;
+  }
+}
+
+label {
+  color: $gray-dark;
+  font-size: $label-size;
+}
+
+span {
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: inline-block;
+  color: $gray;
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.check-bx {
+  margin-bottom: 10px;
+  color: $gray;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+a {
+  font-size: 12px;
+}
+a:hover {
+  color: $crimson;
+}
