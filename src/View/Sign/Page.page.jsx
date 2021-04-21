@@ -10,7 +10,6 @@ class Page extends React.Component{
         }
       
         componentDidMount() {
-          //Add .right by default
           this.rightSide.classList.add("right");
         }
       
@@ -29,9 +28,9 @@ class Page extends React.Component{
       
         render() {
           const { isLogginActive } = this.state;
-          const current = isLogginActive ? "Register" : "Login";
-          const currentActive = isLogginActive ? "login" : "register";
+          const current = isLogginActive ? "Sign Up" : "Sign In";
           return (
+            
             <div className="App">
               <div className="login">
                 <div className="container" ref={ref => (this.container = ref)}>
@@ -44,7 +43,6 @@ class Page extends React.Component{
                 </div>
                 <RightSide
                   current={current}
-                  currentActive={currentActive}
                   containerRef={ref => (this.rightSide = ref)}
                   onClick={this.changeState.bind(this)}
                 />
