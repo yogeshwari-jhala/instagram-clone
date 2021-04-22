@@ -120,6 +120,9 @@ export const Register = (props) => {
   const { containerRef } = props;
   const classes = useStyles();
   const [values, setValues] = React.useState({
+    name: '',
+    email: '',
+    username: '',
     password: "",
     showPassword: false,
   });
