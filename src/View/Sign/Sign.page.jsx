@@ -52,10 +52,27 @@ export const Login = props => {
   return(
     <div className="base-container" ref={containerRef}>
       <div className="content">
+          <h1>Login</h1>
           <div className="image">
             <img src={logo} alt="" />
           </div>
           <div className="form">
+          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-username"
+            type={values.showusername ? 'text' : 'username'}
+            value={values.username}
+            onChange={handleChange('username')}
+            endAdornment={
+              <InputAdornment position="end">
+
+              </InputAdornment>
+            }
+            labelWidth={70}
+          />
+        </FormControl>
+
           <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
