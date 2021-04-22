@@ -54,78 +54,16 @@ export const Login = (props) => {
   return (
     <div className="base-container" ref={containerRef}>
       <div className="content">
-<<<<<<< HEAD
-        <div className="image">
-          <img src={logo} alt="" />
-        </div>
-        
-          <div className="my-1">
-            <FormControl
-              className={
-                (clsx(classes.margin, classes.textField),
-                "makeStyles-textField-16")
-              }
-              variant="outlined"
-              size="small"
-            >
-              <InputLabel htmlFor="username">Email</InputLabel>
-              <OutlinedInput
-                id="username"
-                type="email"
-                value={values.username}
-                onChange={handleChange("username")}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <AccountCircleIcon />
-                  </InputAdornment>
-                }
-                labelWidth={50}
-              />
-            </FormControl>
-          </div>
-          <div className="my-1">
-            <FormControl
-              className={
-                (clsx(classes.margin, classes.textField),
-                "makeStyles-textField-16")
-              }
-              variant="outlined"
-              size="small"
-            >
-              <InputLabel htmlFor="outlined-adornment-password">
-                Password
-              </InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                type={values.showPassword ? "text" : "password"}
-                className="input-height"
-                value={values.password}
-                onChange={handleChange("password")}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                labelWidth={70}
-              />
-            </FormControl>
-          </div>
-          <div className="my-1">
-              <Button variant="primary" block size="sm">Sign In</Button>
-=======
           <h1>Login</h1>
           <div className="image">
             <img src={logo} alt="" />
           </div>
           <div className="form">
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <FormControl className={
+                (clsx(classes.margin, classes.textField),
+                "makeStyles-textField-16")
+              } variant="outlined" 
+              size="small">
           <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
           <OutlinedInput
             id="outlined-adornment-username"
@@ -141,7 +79,11 @@ export const Login = (props) => {
           />
         </FormControl>
 
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <FormControl className={
+                (clsx(classes.margin, classes.textField),
+                "makeStyles-textField-16")
+              } variant="outlined" 
+              size="small">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -163,7 +105,6 @@ export const Login = (props) => {
             labelWidth={70}
           />
         </FormControl>
->>>>>>> a260b58c22244a30bcbc75177bfceee96f29821a
           </div>
       </div>
     </div>
