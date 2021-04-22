@@ -1,6 +1,7 @@
 import React from "react";
 import "./Login.style.scss";
 import logo from "../../assets/instalogo.png";
+import '../../Components/Style/Button.style.scss'
 
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,6 +13,11 @@ import FormControl from "@material-ui/core/FormControl";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+<<<<<<< HEAD
+=======
+
+import Button from "@material-ui/core/Button";
+>>>>>>> f99c5e6405071320fc7c47a74b54aaa70b9d7b3d
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,10 +65,7 @@ export const Login = (props) => {
         <div className="form">
           <div className="my-1">
             <FormControl
-              className={
-                (clsx(classes.margin, classes.textField)
-                )
-              }
+              className={clsx(classes.margin, classes.textField)}
               variant="outlined"
               size="small"
             >
@@ -74,18 +77,14 @@ export const Login = (props) => {
                 onChange={handleChange("username")}
                 endAdornment={
                   <InputAdornment position="end">
-                    <AccountCircleIcon/>
+                    <AccountCircleIcon />
                   </InputAdornment>
                 }
                 labelWidth={40}
               />
             </FormControl>
-          </div>
-          <div className="my-1">
             <FormControl
-              className={
-                (clsx(classes.margin, classes.textField))
-              }
+              className={clsx(classes.margin, classes.textField)}
               variant="outlined"
               size="small"
             >
@@ -111,20 +110,26 @@ export const Login = (props) => {
               />
             </FormControl>
           </div>
+<<<<<<< HEAD
           <div className="my-1">
             
           </div>
+=======
+          <button className="submit-btn">
+            Sign In
+          </button>
+>>>>>>> f99c5e6405071320fc7c47a74b54aaa70b9d7b3d
         </div>
       </div>
     </div>
   );
 };
 
-export const Register = props => {
-  const {containerRef} = props
+export const Register = (props) => {
+  const { containerRef } = props;
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    password: '',
+    password: "",
     showPassword: false,
   });
 
@@ -140,70 +145,78 @@ export const Register = props => {
     event.preventDefault();
   };
 
-  return(
+  return (
     <div className="base-container" ref={containerRef}>
       <div className="content">
-          <div className="image">
-            <img src={logo} alt="" />
-          </div>
-          <div className="form">
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" 
-              size="small">
-          <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-username"
-            type={values.showusername ? 'text' : 'username'}
-            value={values.username}
-            onChange={handleChange('username')}
-            endAdornment={
-              <InputAdornment position="end">
-
-              </InputAdornment>
-            }
-            labelWidth={70}
-          />
-        </FormControl>
-        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined"
-              size="small">
-          <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-email"
-            type={values.showemail ? 'text' : 'email'}
-            value={values.email}
-            onChange={handleChange('email')}
-            endAdornment={
-              <InputAdornment position="end">
-
-              </InputAdornment>
-            }
-            labelWidth={70}
-          />
-        </FormControl>
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined"
-              size="small">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            onChange={handleChange('password')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>
-            }
-            labelWidth={70}
-          />
-        </FormControl>
-          </div>
+        <div className="image">
+          <img src={logo} alt="" />
+        </div>
+        <div className="form">
+          <FormControl
+            className={clsx(classes.margin, classes.textField)}
+            variant="outlined"
+            size="small"
+          >
+            <InputLabel htmlFor="outlined-adornment-username">
+              Username
+            </InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-username"
+              type={values.showusername ? "text" : "username"}
+              value={values.username}
+              onChange={handleChange("username")}
+              endAdornment={<InputAdornment position="end"></InputAdornment>}
+              labelWidth={70}
+            />
+          </FormControl>
+          <FormControl
+            className={clsx(classes.margin, classes.textField)}
+            variant="outlined"
+            size="small"
+          >
+            <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-email"
+              type={values.showemail ? "text" : "email"}
+              value={values.email}
+              onChange={handleChange("email")}
+              endAdornment={<InputAdornment position="end"></InputAdornment>}
+              labelWidth={70}
+            />
+          </FormControl>
+          <FormControl
+            className={clsx(classes.margin, classes.textField)}
+            variant="outlined"
+            size="small"
+          >
+            <InputLabel htmlFor="outlined-adornment-password">
+              Password
+            </InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={values.showPassword ? "text" : "password"}
+              value={values.password}
+              onChange={handleChange("password")}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              labelWidth={70}
+            />
+          </FormControl>
+          <button className="submit-btn">
+            Sign Up
+          </button>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
