@@ -12,7 +12,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import Button from 'react-bootstrap/Button'
+
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,58 +55,69 @@ export const Login = (props) => {
   return (
     <div className="base-container" ref={containerRef}>
       <div className="content">
-          <h1>Login</h1>
-          <div className="image">
-            <img src={logo} alt="" />
-          </div>
-          <div className="form">
-          <FormControl className={
+        <div className="image">
+          <img src={logo} alt="" />
+        </div>
+        <div className="form">
+          <div className="my-1">
+            <FormControl
+              className={
                 (clsx(classes.margin, classes.textField),
                 "makeStyles-textField-16")
-              } variant="outlined" 
-              size="small">
-          <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-username"
-            type={values.showusername ? 'text' : 'username'}
-            value={values.username}
-            onChange={handleChange('username')}
-            endAdornment={
-              <InputAdornment position="end">
-
-              </InputAdornment>
-            }
-            labelWidth={70}
-          />
-        </FormControl>
-
-          <FormControl className={
+              }
+              variant="outlined"
+              size="small"
+            >
+              <InputLabel htmlFor="email">Email</InputLabel>
+              <OutlinedInput
+                id="email"
+                type={values.showusername ? "text" : "username"}
+                value={values.username}
+                onChange={handleChange("username")}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <AccountCircleIcon/>
+                  </InputAdornment>
+                }
+                labelWidth={40}
+              />
+            </FormControl>
+          </div>
+          <div className="my-1">
+            <FormControl
+              className={
                 (clsx(classes.margin, classes.textField),
                 "makeStyles-textField-16")
-              } variant="outlined" 
-              size="small">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            onChange={handleChange('password')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>
-            }
-            labelWidth={70}
-          />
-        </FormControl>
+              }
+              variant="outlined"
+              size="small"
+            >
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <OutlinedInput
+                id="password"
+                type={values.showPassword ? "text" : "password"}
+                value={values.password}
+                onChange={handleChange("password")}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      onMouseDown={handleMouseDownPassword}
+                      edge="end"
+                    >
+                      {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                    </IconButton>
+                  </InputAdornment>
+                }
+                labelWidth={60}
+              />
+            </FormControl>
           </div>
+          <div className="my-1">
+            <Button style={{ width: '90%' }}>Sign In</Button>
+          </div>
+        </div>
       </div>
     </div>
   );
