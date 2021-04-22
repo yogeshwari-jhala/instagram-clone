@@ -54,6 +54,7 @@ export const Login = (props) => {
   return (
     <div className="base-container" ref={containerRef}>
       <div className="content">
+<<<<<<< HEAD
         <div className="image">
           <img src={logo} alt="" />
         </div>
@@ -118,6 +119,51 @@ export const Login = (props) => {
           </div>
           <div className="my-1">
               <Button variant="primary" block size="sm">Sign In</Button>
+=======
+          <h1>Login</h1>
+          <div className="image">
+            <img src={logo} alt="" />
+          </div>
+          <div className="form">
+          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-username"
+            type={values.showusername ? 'text' : 'username'}
+            value={values.username}
+            onChange={handleChange('username')}
+            endAdornment={
+              <InputAdornment position="end">
+
+              </InputAdornment>
+            }
+            labelWidth={70}
+          />
+        </FormControl>
+
+          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-password"
+            type={values.showPassword ? 'text' : 'password'}
+            value={values.password}
+            onChange={handleChange('password')}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+            labelWidth={70}
+          />
+        </FormControl>
+>>>>>>> a260b58c22244a30bcbc75177bfceee96f29821a
           </div>
       </div>
     </div>
