@@ -1,22 +1,23 @@
 import React from "react";
 import "./Login.style.scss";
-import logo from '../../assets/instalogo.png'
+import logo from "../../assets/instalogo.png";
 
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormControl from '@material-ui/core/FormControl';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
+import clsx from "clsx";
+import { makeStyles } from "@material-ui/core/styles";
+import IconButton from "@material-ui/core/IconButton";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+import InputLabel from "@material-ui/core/InputLabel";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import FormControl from "@material-ui/core/FormControl";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import Button from 'react-bootstrap/Button'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
   },
   margin: {
     margin: theme.spacing(1),
@@ -25,15 +26,16 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   textField: {
-    width: '25ch',
+    width: "25ch",
   },
 }));
 
-export const Login = props => {
-  const {containerRef} = props
+export const Login = (props) => {
+  const { containerRef } = props;
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    password: '',
+    username: "",
+    password: "",
     showPassword: false,
   });
 
@@ -49,7 +51,7 @@ export const Login = props => {
     event.preventDefault();
   };
 
-  return(
+  return (
     <div className="base-container" ref={containerRef}>
       <div className="content">
           <h1>Login</h1>
@@ -57,7 +59,11 @@ export const Login = props => {
             <img src={logo} alt="" />
           </div>
           <div className="form">
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <FormControl className={
+                (clsx(classes.margin, classes.textField),
+                "makeStyles-textField-16")
+              } variant="outlined" 
+              size="small">
           <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
           <OutlinedInput
             id="outlined-adornment-username"
@@ -73,7 +79,11 @@ export const Login = props => {
           />
         </FormControl>
 
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <FormControl className={
+                (clsx(classes.margin, classes.textField),
+                "makeStyles-textField-16")
+              } variant="outlined" 
+              size="small">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
@@ -98,9 +108,8 @@ export const Login = props => {
           </div>
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 export const Register = props => {
   const {containerRef} = props
