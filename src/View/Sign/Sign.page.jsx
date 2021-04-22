@@ -62,8 +62,8 @@ export const Login = (props) => {
           <div className="my-1">
             <FormControl
               className={
-                (clsx(classes.margin, classes.textField),
-                "makeStyles-textField-16")
+                (clsx(classes.margin, classes.textField)
+                )
               }
               variant="outlined"
               size="small"
@@ -86,8 +86,7 @@ export const Login = (props) => {
           <div className="my-1">
             <FormControl
               className={
-                (clsx(classes.margin, classes.textField),
-                "makeStyles-textField-16")
+                (clsx(classes.margin, classes.textField))
               }
               variant="outlined"
               size="small"
@@ -146,12 +145,12 @@ export const Register = props => {
   return(
     <div className="base-container" ref={containerRef}>
       <div className="content">
-          <h1>Register</h1>
           <div className="image">
             <img src={logo} alt="" />
           </div>
           <div className="form">
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" 
+              size="small">
           <InputLabel htmlFor="outlined-adornment-username">Username</InputLabel>
           <OutlinedInput
             id="outlined-adornment-username"
@@ -166,7 +165,8 @@ export const Register = props => {
             labelWidth={70}
           />
         </FormControl>
-        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined"
+              size="small">
           <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
           <OutlinedInput
             id="outlined-adornment-email"
@@ -181,7 +181,8 @@ export const Register = props => {
             labelWidth={70}
           />
         </FormControl>
-          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined"
+              size="small">
           <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
