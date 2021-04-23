@@ -14,70 +14,21 @@
     .content{
         display: flex;
         flex-direction: column;
-    .image{
-        width: 21em;
         img {
           width: 70%;
-          height: 95px;
-          margin: 2%;
-          padding: 3%;
+          height: auto;
       }
-    }
   
     .form{
-        margin-top: 2em;
+        // margin-top: 2em;
         display: flex;
         width: 100px;
         height:150px;
         flex-direction: column;
         align-items: center;
-        .form_group{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: fit-content;
-            label{
-                font-size: 20px;
-            }
-            input{
-                    margin-top: 6px;
-                    min-width: 18em;
-                    height: 37px;
-                    padding: 10px;
-                    font-size: 16px;
-                    font-family: "Open Sans", sans-serif;
-                    background-color: #f3ebeb;
-                    border: 0;
-                    border-radius: 4px;
-                    margin-bottom: 31px;
-                    transition: all 250ms ease-in-out;
-                    &:focus{
-                        outline: none;
-                        box-shadow: 0px 0px 12px 0.8px #0e81ce96;
-                    }
-            }
-        }
+       
     }
   }
-    .footer{
-        margin-top: 3px;
-        .btn {
-            font-size: 21px;
-            padding: 5px 20px;
-            border: 0;
-            background-color: #3498db;
-            color: rgb(209, 196, 196);
-            border-radius: 5px;
-            transition: all 250ms ease-in-out;
-            cursor: pointer;
-            &:hover {
-              background-color: #2386c8;
-            }
-            &:focus {
-              outline: none;
-            }
-    }
-}
 }
 .App {
     text-align: center;
@@ -224,6 +175,17 @@
   }
 
 
-  .makeStyles-textField-16 {
-    width: 30ch;
-}
+  .login-text {
+    margin: auto 5vh;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(121, 120, 120);
+  }
+  
+  
+  .agree-text {
+    margin: 5px 5vh;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgb(121, 120, 120);
+  }

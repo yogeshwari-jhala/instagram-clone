@@ -1,4 +1,4 @@
-@import "./color.style.scss";
+@import "../Style/color.style.scss";
 
 button {
   display: inline-block;
@@ -40,6 +40,9 @@ button {
 }
 
 .Google-btn {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 70%;
   background: $red;
   color: $none;
   outline: none;
@@ -50,4 +53,29 @@ button {
 
 .Google-btn:hover {
   background: $crimson;
+}
+
+
+.Google-btn-outline {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 70%;
+  background: $none;
+  color: $red;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.Google-btn-outline:hover {
+  color: $none;
+  background: $crimson;
+  opacity: .6;
+}
+
+.Google-btn-outline:focus {
+  color: $none;
+  background: $crimson;
+  opacity: .8;
 }
