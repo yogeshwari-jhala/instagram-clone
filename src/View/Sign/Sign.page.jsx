@@ -1,20 +1,29 @@
 import React from "react";
+
 import "./Login.style.scss";
 import logo from "../../assets/instalogo.png";
-import '../../Components/Style/Button.style.scss'
+import HR from '../../Components/hr/hr.component'
+import {BtnPrimary, BtnGoogle, BtnGoogleOutline} from '../../Components/Button/Button.component'
 
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
+
 import IconButton from "@material-ui/core/IconButton";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 import InputLabel from "@material-ui/core/InputLabel";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
+import Link from "@material-ui/core/Link";
+
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+<<<<<<< HEAD
 
 import Button from "@material-ui/core/Button";
+=======
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+>>>>>>> 0cb840586f98be6bd104355e8d29cc4443d33ffb
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +49,7 @@ export const Login = (props) => {
     password: "",
     showPassword: false,
   });
+  const [error, setError] = React.useState('');
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -60,7 +70,6 @@ export const Login = (props) => {
           <img src={logo} alt="" />
         </div>
         <div className="form">
-          <div className="my-1">
             <FormControl
               className={clsx(classes.margin, classes.textField)}
               variant="outlined"
@@ -106,10 +115,19 @@ export const Login = (props) => {
                 labelWidth={60}
               />
             </FormControl>
+<<<<<<< HEAD
           </div>
           <button className="submit-btn">
             Sign In
           </button>
+=======
+          <BtnPrimary text="Sign In"/>
+          
+          <HR text="OR"/>
+          <BtnGoogleOutline text="Continue with Google"/><br/>
+          <Link href="#"  style={{fontSize:"12px", color:'#0042f6'}} color="inherit">Forgot Password?</Link>
+          
+>>>>>>> 0cb840586f98be6bd104355e8d29cc4443d33ffb
         </div>
       </div>
     </div>
@@ -120,9 +138,13 @@ export const Register = (props) => {
   const { containerRef } = props;
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    password: "",
+    email: '',
+    username: '',
+    name: '',
+    password: '',
     showPassword: false,
   });
+  const [error, setError] = React.useState('');
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -139,52 +161,72 @@ export const Register = (props) => {
   return (
     <div className="base-container" ref={containerRef}>
       <div className="content">
-        <div className="image">
-          <img src={logo} alt="" />
-        </div>
+        <img src={logo} alt="" />
+        <div className="login-text">Sign up to see photos and videos from your friends.</div>
+        <BtnGoogle text="Sign In With Google"/>
+        <br/>
+        <HR text="OR"/>
         <div className="form">
+          {/* Email */}
+          <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined" size="small">
+            <InputLabel htmlFor="email">Email</InputLabel>
+            <OutlinedInput
+              id="email" 
+              type="email"
+              value={values.email}
+              onChange={handleChange("email")}
+              endAdornment={<InputAdornment position="end"><AlternateEmailIcon/></InputAdornment>}
+              labelWidth={70}
+            />
+          </FormControl>
+          {/* username */}
           <FormControl
             className={clsx(classes.margin, classes.textField)}
             variant="outlined"
             size="small"
           >
-            <InputLabel htmlFor="outlined-adornment-username">
+            <InputLabel htmlFor="username">
               Username
             </InputLabel>
             <OutlinedInput
-              id="outlined-adornment-username"
-              type={values.showusername ? "text" : "username"}
+              id="username"
+              type="text"
               value={values.username}
               onChange={handleChange("username")}
-              endAdornment={<InputAdornment position="end"></InputAdornment>}
+              endAdornment={<InputAdornment position="end"><AccountCircleIcon/></InputAdornment>}
               labelWidth={70}
             />
           </FormControl>
+          
+          {/* Fullname  */}
           <FormControl
             className={clsx(classes.margin, classes.textField)}
             variant="outlined"
             size="small"
           >
-            <InputLabel htmlFor="outlined-adornment-email">Email</InputLabel>
+            <InputLabel htmlFor="fullname">
+              Fullname
+            </InputLabel>
             <OutlinedInput
-              id="outlined-adornment-email"
-              type={values.showemail ? "text" : "email"}
-              value={values.email}
-              onChange={handleChange("email")}
-              endAdornment={<InputAdornment position="end"></InputAdornment>}
+              id="fullname"
+              type="text"
+              value={values.name}
+              onChange={handleChange("fullname")}
+              endAdornment={<InputAdornment position="end"><AccountCircleIcon/></InputAdornment>}
               labelWidth={70}
             />
           </FormControl>
+
           <FormControl
             className={clsx(classes.margin, classes.textField)}
             variant="outlined"
             size="small"
           >
-            <InputLabel htmlFor="outlined-adornment-password">
+            <InputLabel htmlFor="password">
               Password
             </InputLabel>
             <OutlinedInput
-              id="outlined-adornment-password"
+              id="password"
               type={values.showPassword ? "text" : "password"}
               value={values.password}
               onChange={handleChange("password")}
@@ -203,9 +245,10 @@ export const Register = (props) => {
               labelWidth={70}
             />
           </FormControl>
-          <button className="submit-btn">
-            Sign Up
-          </button>
+          <BtnPrimary text="Sign Up"/>
+          <div className="agree-text">
+            By signing up, you agree to our Terms , Data Policy and Cookies Policy .
+          </div>
         </div>
       </div>
     </div>
