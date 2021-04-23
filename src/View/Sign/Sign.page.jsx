@@ -114,7 +114,7 @@ export const Login = (props) => {
           
           <HR text="OR"/>
           <BtnGoogleOutline text="Continue with Google"/><br/>
-          <Link href="#"  style={{fontSize:"11px", color:'#0042f6'}} color="inherit">Forgot Password?</Link>
+          <Link href="#"  style={{fontSize:"12px", color:'#0042f6'}} color="inherit">Forgot Password?</Link>
           
         </div>
       </div>
