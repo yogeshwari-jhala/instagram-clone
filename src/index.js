@@ -1,7 +1,7 @@
 import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sign from './View/Sign/Page.page'
+import Sign from './repository/Firestore/FirebaseAuth.page'
 
 
 ReactDOM.render(

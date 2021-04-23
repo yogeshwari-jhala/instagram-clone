@@ -14,12 +14,12 @@ const firebaseApp = firebase.initializeApp({
     measurementId: "G-FRDRZHRHXS"
 });
 
-const db = firebaseApp.firestore();
+const firestore = firebaseApp.firestore();
 const auth = firebase.auth();
 const storage = firebase.storage();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 const ProvidersEnum = Object.freeze({"google": googleProvider});
 
-export { db, auth, storage, ProvidersEnum };
+export { firestore, auth, storage, ProvidersEnum };
 export default firebase;
