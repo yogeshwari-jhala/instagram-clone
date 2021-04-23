@@ -91,11 +91,10 @@ img {
 //Login Main Container
 .login {
   width: 27em;
-  height: 40em;
+  height: 45em;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5vh;
   position: relative;
   z-index: 99;
 
@@ -153,8 +152,6 @@ img {
     }
   }
 }
-
-
 
 .login-text {
   margin: auto 5vh;
