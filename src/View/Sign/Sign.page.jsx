@@ -13,11 +13,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-<<<<<<< HEAD
-=======
 
 import Button from "@material-ui/core/Button";
->>>>>>> f99c5e6405071320fc7c47a74b54aaa70b9d7b3d
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -110,15 +107,9 @@ export const Login = (props) => {
               />
             </FormControl>
           </div>
-<<<<<<< HEAD
-          <div className="my-1">
-            
-          </div>
-=======
           <button className="submit-btn">
             Sign In
           </button>
->>>>>>> f99c5e6405071320fc7c47a74b54aaa70b9d7b3d
         </div>
       </div>
     </div>

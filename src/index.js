@@ -1,12 +1,12 @@
 import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sign from './View/Sign/Page.page'
-
+import Page from './View/Sign/Page.page'
+import GoogleSignIn from './View/GoogleSignIn/GoogleSignIn'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Sign />
+    <GoogleSignIn/>
   </React.StrictMode>,
   document.getElementById('root')
 );
