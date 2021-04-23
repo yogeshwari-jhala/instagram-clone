@@ -1,12 +1,12 @@
 import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sign from './repository/Firestore/FirebaseAuth.page'
+import Page from './View/Sign/Page.page'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Sign />
+    <Page />
   </React.StrictMode>,
   document.getElementById('root')
 );
