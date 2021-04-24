@@ -4,7 +4,6 @@ import "./Login.style.scss";
 import logo from "../../assets/instalogo.png";
 import HR from '../../Components/hr/hr.component'
 import {BtnPrimary, BtnGoogle, BtnGoogleOutline} from '../../Components/Button/Button.component'
-
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -19,6 +18,9 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
+
+import Repository from "../../repository/Repository";
+import {ProvidersEnum} from '../../repository/Firestore/Firestore.config'
 
 export const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +59,10 @@ export const Login = (props) => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const GoogleLogin = () => {
+
+  }
 
   return (
     <div className="base-container" ref={containerRef}>
@@ -113,7 +119,8 @@ export const Login = (props) => {
           <BtnPrimary text="Sign In"/>
           
           <HR text="OR"/>
-          <BtnGoogleOutline text="Continue with Google"/><br/>
+          <button onClick={() => new Repository().signInWithProvider(ProvidersEnum.google)}>Signin</button>
+          <br/>
           <Link href="#"  style={{fontSize:"12px", color:'#0042f6'}} color="inherit">Forgot Password?</Link>
           
         </div>

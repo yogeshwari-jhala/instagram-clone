@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { auth } from './Firestore.config';
-
 import FirebaseAuthOperations from './Firebase.auth';
 
-import { Page } from "../../View/Sign/Page.page";
+import Page from "../../View/Sign/Page.page";
 
-// import Router from "../../../Views/router";
+import {Loading} from '../../Components/Loader/Loader.component'
 
 export const GlobalUserState = React.createContext({});
 
@@ -51,7 +50,7 @@ export default class GoogleSignIn extends Component {
 
   render() {
     if (this.state.loading) {
-      return ''
+      return <Loading/>
     }
 
     if (this.state.currentUser === null) {
@@ -65,7 +64,7 @@ export default class GoogleSignIn extends Component {
     if (auth.currentUser.providerData[1] === undefined || auth.currentUser.providerData[1] === null) {
       return (
         <GlobalUserState.Provider value={this.state.currentUser}>
-          {/* <SetPassword /> */}
+          <SetPassword />
         </GlobalUserState.Provider>
       )
     }

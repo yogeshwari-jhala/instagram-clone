@@ -1,9 +1,5 @@
 import React from "react";
 
-import logo from "../../assets/instalogo.png";
-import { BtnPrimary } from "../../Components/Button/Button.component";
-import { useStyles } from "../Sign/Sign.page";
-import "./GoogleSignInStyle.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 
@@ -16,9 +12,11 @@ import FormControl from "@material-ui/core/FormControl";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
-const GoogleSignIn = () => {
+import logo from "../../assets/instalogo.png";
+import {BtnPrimary} from '../../../Components/Button/Button.component'
+import { useStyles } from "../../Sign/Sign.page";
+import "./GoogleSignInStyle.scss";
 
-}
 
 const SetPassword = (props) => {
   const classes = useStyles();
@@ -54,7 +52,7 @@ const SetPassword = (props) => {
                   className={clsx(classes.margin, classes.textField)}
                   variant="outlined"
                   size="small"
-                >
+                  >
                   <InputLabel htmlFor="password">Password</InputLabel>
                   <OutlinedInput
                     id="password1"
@@ -84,7 +82,7 @@ const SetPassword = (props) => {
                   className={clsx(classes.margin, classes.textField)}
                   variant="outlined"
                   size="small"
-                >
+                  >
                   <InputLabel htmlFor="cnfpassword">
                     Confirm Password
                   </InputLabel>
@@ -109,4 +107,4 @@ const SetPassword = (props) => {
   );
 };
 
-export {GoogleSignIn, SetPassword};
+export {SetPassword};
