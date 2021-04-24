@@ -16,7 +16,11 @@ import FormControl from "@material-ui/core/FormControl";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
-const GoogleSignIn = (props) => {
+const GoogleSignIn = () => {
+
+}
+
+const SetPassword = (props) => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     password: "",
@@ -105,4 +109,4 @@ const GoogleSignIn = (props) => {
   );
 };
 
-export default GoogleSignIn;
+export {GoogleSignIn, SetPassword};
