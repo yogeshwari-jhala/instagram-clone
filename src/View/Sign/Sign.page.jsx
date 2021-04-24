@@ -18,14 +18,9 @@ import Link from "@material-ui/core/Link";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-<<<<<<< HEAD
-
-import Button from "@material-ui/core/Button";
-=======
 import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
->>>>>>> 0cb840586f98be6bd104355e8d29cc4443d33ffb
 
-const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
@@ -115,19 +110,12 @@ export const Login = (props) => {
                 labelWidth={60}
               />
             </FormControl>
-<<<<<<< HEAD
-          </div>
-          <button className="submit-btn">
-            Sign In
-          </button>
-=======
           <BtnPrimary text="Sign In"/>
           
           <HR text="OR"/>
           <BtnGoogleOutline text="Continue with Google"/><br/>
           <Link href="#"  style={{fontSize:"12px", color:'#0042f6'}} color="inherit">Forgot Password?</Link>
           
->>>>>>> 0cb840586f98be6bd104355e8d29cc4443d33ffb
         </div>
       </div>
     </div>

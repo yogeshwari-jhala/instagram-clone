@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React from 'react';
-import {Login, Register} from './Sign.page';
-=======
 import React from "react";
 import { Login, Register } from "./Sign.page";
->>>>>>> 0cb840586f98be6bd104355e8d29cc4443d33ffb
 
 class Page extends React.Component {
   constructor(props) {
@@ -40,6 +35,7 @@ class Page extends React.Component {
       <div className="App">
         <div className="login">
           <div className="container" ref={(ref) => (this.container = ref)}>
+            
             {isLogginActive && (
               <Login containerRef={(ref) => (this.current = ref)} />
             )}
