@@ -5,6 +5,7 @@ import FirebaseAuthOperations from './Firebase.auth';
 import Page from "../../View/Sign/Page.page";
 
 import {Loading} from '../../Components/Loader/Loader.component'
+import SetPassword from '../../View/SetPassword/SetPassword.component'
 
 export const GlobalUserState = React.createContext({});
 
@@ -64,6 +65,7 @@ export default class GoogleSignIn extends Component {
     if (auth.currentUser.providerData[1] === undefined || auth.currentUser.providerData[1] === null) {
       return (
         <GlobalUserState.Provider value={this.state.currentUser}>
+          {console.log(this.state.currentUser)}
           <SetPassword />
         </GlobalUserState.Provider>
       )

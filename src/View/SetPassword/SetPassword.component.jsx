@@ -11,11 +11,12 @@ import FormControl from "@material-ui/core/FormControl";
 
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import LockIcon from "@material-ui/icons/Lock";
 
 import logo from "../../assets/instalogo.png";
-import {BtnPrimary} from '../../../Components/Button/Button.component'
-import { useStyles } from "../../Sign/Sign.page";
-import "./GoogleSignInStyle.scss";
+import '../../Components/Style/Button.style.scss'
+import { useStyles } from "../Sign/Sign.page";
+import "./SetPassword.style.scss";
 
 
 const SetPassword = (props) => {
@@ -92,12 +93,12 @@ const SetPassword = (props) => {
                     value={values.cnfpassword}
                     onChange={handleChange("cnfpassword")}
                     endAdornment={
-                      <InputAdornment position="end"></InputAdornment>
+                      <InputAdornment position="end"><LockIcon/></InputAdornment>
                     }
                     labelWidth={110}
                   />
                 </FormControl>
-                <BtnPrimary text="Sign In" />
+                <button>Set Password</button>
               </div>
             </div>
           </div>
@@ -107,4 +108,4 @@ const SetPassword = (props) => {
   );
 };
 
-export {SetPassword};
+export default SetPassword;

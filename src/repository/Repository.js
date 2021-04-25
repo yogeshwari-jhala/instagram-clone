@@ -25,6 +25,7 @@ export default class Repository {
 
   /**
    * Sign Up with Email and Password
+   * @param {string} name
    * @param {String} email 
    * @param {String} password 
    */
