@@ -6,8 +6,8 @@ import Post from './View/Posts/Post.page'
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <GoogleSignIn /> */}
-    <Post />
+    <GoogleSignIn />
+    {/* <Post /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
