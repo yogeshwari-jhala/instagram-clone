@@ -38,9 +38,14 @@ export const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const GoogleLogin = () => {
+  new Repository().signInWithProvider(ProvidersEnum.google)
+}
+
 export const Login = (props) => {
   const { containerRef } = props;
   const classes = useStyles();
+  const Google = GoogleLogin();
   const [values, setValues] = React.useState({
     username: "",
     password: "",
@@ -60,9 +65,7 @@ export const Login = (props) => {
     event.preventDefault();
   };
 
-  const GoogleLogin = () => {
-
-  }
+  
 
   return (
     <div className="base-container" ref={containerRef}>
@@ -119,7 +122,7 @@ export const Login = (props) => {
           <BtnPrimary text="Sign In"/>
           
           <HR text="OR"/>
-          <button onClick={() => new Repository().signInWithProvider(ProvidersEnum.google)}>Signin</button>
+          <button onClick={Google}>Signin</button>
           <br/>
           <Link href="#"  style={{fontSize:"12px", color:'#0042f6'}} color="inherit">Forgot Password?</Link>
           
