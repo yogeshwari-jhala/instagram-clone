@@ -18,6 +18,8 @@ import '../../Components/Style/Button.style.scss'
 import { useStyles } from "../Sign/Sign.page";
 import "./SetPassword.style.scss";
 
+import Repository from '../../repository/Repository'
+
 
 const SetPassword = (props) => {
   const classes = useStyles();
@@ -98,7 +100,7 @@ const SetPassword = (props) => {
                     labelWidth={110}
                   />
                 </FormControl>
-                <button>Set Password</button>
+                <button onClick={() => {new Repository().signOut()}}>Set Password</button>
               </div>
             </div>
           </div>

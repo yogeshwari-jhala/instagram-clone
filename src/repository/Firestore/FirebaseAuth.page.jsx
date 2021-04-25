@@ -65,7 +65,8 @@ export default class GoogleSignIn extends Component {
     if (auth.currentUser.providerData[1] === undefined || auth.currentUser.providerData[1] === null) {
       return (
         <GlobalUserState.Provider value={this.state.currentUser}>
-          {console.log(this.state.currentUser)}
+        {console.log(auth.currentUser.providerData[1])}
+          {console.log(auth.currentUser.providerData[0]['providerId'])}
           <SetPassword />
         </GlobalUserState.Provider>
       )
