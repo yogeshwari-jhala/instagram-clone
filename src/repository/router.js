@@ -32,7 +32,6 @@ export default class Router extends Component {
     render() {
         return (
             <div className={this.state.theme}>
-                <div className="wrapper-main" style={{ height: "200%" }}>
                     <BrowserRouter>
                         <Navbar/>
                         <Switch>
@@ -42,7 +41,6 @@ export default class Router extends Component {
                         </Switch>
                         
                     </BrowserRouter>
-                </div>
             </div>
         );
     }
