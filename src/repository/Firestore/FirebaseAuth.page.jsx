@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { auth } from './Firestore.config';
 import FirebaseAuthOperations from './Firebase.auth';
+import Router from '../router'
 
 import Page from "../../View/Sign/Page.page";
 
@@ -62,11 +63,9 @@ export default class GoogleSignIn extends Component {
       )
     }
 
-    if (auth.currentUser.providerData[1] === undefined || auth.currentUser.providerData[1] === null) {
+    if ((auth.currentUser.providerData[1] === undefined || auth.currentUser.providerData[1] === null) && auth.currentUser.providerData[0]['providerId']==='google.com') {
       return (
         <GlobalUserState.Provider value={this.state.currentUser}>
-        {console.log(auth.currentUser.providerData[1])}
-          {console.log(auth.currentUser.providerData[0]['providerId'])}
           <SetPassword />
         </GlobalUserState.Provider>
       )
@@ -74,7 +73,7 @@ export default class GoogleSignIn extends Component {
 
     return (
       <GlobalUserState.Provider value={this.state.currentUser}>
-        {/* <Router /> */}
+        <Router />
       </GlobalUserState.Provider>
     );
   }

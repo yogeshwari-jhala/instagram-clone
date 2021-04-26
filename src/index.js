@@ -2,7 +2,7 @@ import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GoogleSignIn from './repository/Firestore/FirebaseAuth.page'
-import Post from './View/Posts/Post.page'
+import Post from './View/Posts/Posts.page'
 
 ReactDOM.render(
   <React.StrictMode>
