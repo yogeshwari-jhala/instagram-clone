@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Posts from '../View/Posts/Posts.page'
 import Navbar from '../Components/Navbar/Navbar.component'
+import NavbarTop from '../Components/Navbar/NavbarTop.component'
 
 
 export default class Router extends Component {
@@ -33,7 +34,7 @@ export default class Router extends Component {
         return (
             <div className={this.state.theme}>
                     <BrowserRouter>
-                        <Navbar/>
+                        <NavbarTop/>
                         <Switch>
                             {/* <Route exact path="/" component={Posts} /> */}
                             {/* <Route path="/path" component={View} /> */}
