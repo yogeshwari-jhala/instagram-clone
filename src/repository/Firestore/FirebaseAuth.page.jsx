@@ -73,7 +73,7 @@ export default class GoogleSignIn extends Component {
 
     return (
       <GlobalUserState.Provider value={this.state.currentUser}>
-        <Router />
+        <Router/>
       </GlobalUserState.Provider>
     );
   }
