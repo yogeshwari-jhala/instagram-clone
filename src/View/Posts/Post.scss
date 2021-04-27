@@ -1,0 +1,14 @@
+
+.caption{
+        display: flex;
+        flex-direction: row;   
+        
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    .comment{
+        padding-top: 12px;
+        padding-left:2px;
+    }
+}
