@@ -43,12 +43,18 @@ export default function Cards() {
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
-      <CardMedia
-        className={classes.media}
-        image={Peacock}
-        title="peacock"
-      />
-      <div className="icons">
+    <div class="hover column">
+        <div>
+             <figure>
+                <CardMedia
+                    className={classes.media}
+                    image={Peacock}
+                    title="peacock"
+                />
+            </figure>
+	    </div>
+    </div>
+        <div className="icons">
       <IconButton aria-label="add to favorites"  component="p">
           <FavoriteIcon />
         </IconButton>
