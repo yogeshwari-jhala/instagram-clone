@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import Repository from '../../repository/Repository'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -196,7 +197,9 @@ export default function NavbarTop() {
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit"  className={classes.flexBtn}>
+            <IconButton aria-label="show 4 new mails" color="inherit"  className={classes.flexBtn} onClick={()=>{
+                new Repository().signOut()
+              }}>
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
               </Badge>
