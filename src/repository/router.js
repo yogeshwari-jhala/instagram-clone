@@ -34,7 +34,7 @@ export default class Router extends Component {
         return (
             <div className={this.state.theme}>
                     <BrowserRouter>
-                        <NavbarTop/>
+                        <Navbar/>
                         <Switch>
                             {/* <Route exact path="/" component={Posts} /> */}
                             {/* <Route path="/path" component={View} /> */}

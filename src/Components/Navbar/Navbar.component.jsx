@@ -12,11 +12,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+
 import Avatar from '@material-ui/core/Avatar';
-import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
+import HomeIcon from '@material-ui/icons/Home';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
 
 const messages = [
   {
@@ -68,6 +69,7 @@ const messages = [
 ];
 
 const useStyles = makeStyles((theme) => ({
+  navbarcolor: theme.palette.type,
   text: {
     padding: theme.spacing(2, 2, 0),
   },
@@ -125,23 +127,23 @@ export default function Navbar() {
           ))}
         </List>
       </Paper>
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <AppBar position="fixed" color={classes.navbarcolor} className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="open drawer"  className={classes.flexBtn}>
-            <MenuIcon />
+            <HomeIcon/>
           </IconButton>
           <IconButton edge="start" color="inherit" aria-label="open drawer"  className={classes.flexBtn}>
-            <MenuIcon />
+            <SearchIcon />
           </IconButton>
           <Fab color="secondary" aria-label="add" className={classes.fabButton}>
             <AddIcon />
           </Fab>
           <div className={classes.grow}  />
           <IconButton color="inherit"  className={classes.flexBtn}>
-            <SearchIcon />
+            <FavoriteIcon />
           </IconButton>
           <IconButton edge="end" color="inherit" className={classes.flexBtn}>
-            <MoreIcon />
+            <Avatar />
           </IconButton>
         </Toolbar>
       </AppBar>
