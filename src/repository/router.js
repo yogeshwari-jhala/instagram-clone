@@ -1,40 +1,49 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core'
 
 import Posts from '../View/Posts/Posts.page'
 import Navbar from '../Components/Navbar/Navbar.component'
 import NavbarTop from '../Components/Navbar/NavbarTop.component'
 
 
+let theme = createMuiTheme({
+    palette: {
+      type: 'dark',
+    },
+    typography: {
+      fontFamily: [
+        'Montserrat',
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+    }
+  });
+  
 export default class Router extends Component {
 
     constructor() {
         super();
-        const currentYear = new Date(Date.now()).getFullYear();
-        this.state = {
-            theme: "theme-1",
-            year: currentYear,
-        }
-        this._changeTheme = this._changeTheme.bind(this);
-    }
-
-    _changeTheme() {
-        if (this.state.theme === "theme-1") {
-            this.setState({
-                theme: "theme-2",
-            });
-        } else {
-            this.setState({
-                theme: "theme-1",
-            });
-        }
+        
     }
 
     render() {
+        
+        theme = responsiveFontSizes(theme);
         return (
-            <div className={this.state.theme}>
+            <div>
+                                
+                <ThemeProvider theme={theme}>
                     <BrowserRouter>
-                        <Navbar/>
+                        <NavbarTop/>
                         <Switch>
                             {/* <Route exact path="/" component={Posts} /> */}
                             {/* <Route path="/path" component={View} /> */}
@@ -42,6 +51,7 @@ export default class Router extends Component {
                         </Switch>
                         
                     </BrowserRouter>
+                </ThemeProvider>
             </div>
         );
     }
