@@ -45,8 +45,8 @@ export default class Router extends Component {
                     <BrowserRouter>
                         <NavbarTop/>
                         <Switch>
-                            {/* <Route exact path="/" component={Posts} /> */}
-                            {/* <Route path="/path" component={View} /> */}
+                            <Route exact path="/" component={Posts} />
+                            <Route path="/path" component={View} />
                             
                         </Switch>
                         

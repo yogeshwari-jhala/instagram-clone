@@ -1,7 +1,7 @@
 import React from 'react';
 import Cards from './Post.component';
 import Grid from '@material-ui/core/Grid';
-import Stories from '../Stories/Stories';
+import Stories from '../../Components/Stories/Stories';
 class Posts extends React.Component{
     constructor (props) {
         super(props)
