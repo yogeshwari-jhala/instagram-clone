@@ -9,7 +9,7 @@ import NavbarTop from '../Components/Navbar/NavbarTop.component'
 
 let theme = createMuiTheme({
     palette: {
-      type: 'dark',
+      type: 'light',
     },
     typography: {
       fontFamily: [
@@ -25,7 +25,8 @@ let theme = createMuiTheme({
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
       ].join(','),
-    }
+    },
+    
   });
   
 export default class Router extends Component {
@@ -46,7 +47,7 @@ export default class Router extends Component {
                         <NavbarTop/>
                         <Switch>
                             <Route exact path="/" component={Posts} />
-                            <Route path="/path" component={View} />
+                            {/* <Route path="/path" component={View} /> */}
                             
                         </Switch>
                         
