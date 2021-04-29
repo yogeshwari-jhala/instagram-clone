@@ -15,6 +15,7 @@ class Posts extends React.Component{
                     <Grid item xs={2}>
                     </Grid>
                     <Grid item xs={5}>
+                        <Stories/>
                     <Cards/>
                     </Grid>
                     <Grid item xs={3}>
