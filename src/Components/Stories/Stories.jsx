@@ -39,35 +39,35 @@ return(
     <div className={classes.avatar}>
     <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
-      <div className={classes.username}>Yogeshwari</div>
+      <div className={classes.username}>ProfileName</div>
       </div>
 
     </div>
