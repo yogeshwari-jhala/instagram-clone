@@ -1,18 +1,78 @@
 import React from 'react';
-import './Stories.scss';
-import Story from './Story';
-function Stories(){
-    return(
-        <div className="stories">
-      <div className="scroll" reverseScroll={true}>
-        <Story />
-        <Story />
-        <Story />
-        <Story />
-        <Story />
-      </div>
-    </div>
-    )
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import Container from '@material-ui/core/Container';
+import Avatar from '@material-ui/core/Avatar';
+import avatar from '../../assets/pp1.png'
+const useStyles = makeStyles((theme) => ({
+    root: {
+      maxWidth: 600,
+      height: 100,
+      marginBottom: 20,
+      marginTop: 10,
+      
+    },
+    avatar:{
+        overflowX: 'scroll',
+        overflowY: 'hidden',
+        display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1)
+    },
+},
+large: {
+    border: '3px solid red',
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
+  username:{
+    fontSize: 10,
+  }
 }
+));
+function Stories() {
+    const classes = useStyles();
 
-export default Stories
+return(
+    <Container maxWidth="sm">
+    <Card className={classes.root}>
+    <div className={classes.avatar}>
+    <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+      <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+      <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+      <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+      <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+      <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+      <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+      <div>
+      <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
+      <div className={classes.username}>ProfileName</div>
+      </div>
+
+    </div>
+    </Card>
+    </Container>
+);
+}
+export default Stories;
