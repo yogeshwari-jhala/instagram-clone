@@ -26,3 +26,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.body-scroll {
+	max-height: calc(100vh - 10px);
+	overflow-y: auto;
+}
+
+.body-scroll::-webkit-scrollbar {
+	width: 6px;
+}
+
+.body-scroll::-webkit-scrollbar-track {
+	background: white;
+}
+
+.body-scroll::-webkit-scrollbar-thumb {
+	background-color: #343A40;
+	border-radius: 10%;
+	border: 2px solid white;
+}
