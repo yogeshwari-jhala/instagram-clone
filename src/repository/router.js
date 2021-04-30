@@ -64,7 +64,7 @@ export default class Router extends Component {
           <BrowserRouter>
           {console.log(width)}
           {(width > 700) ? <NavbarTop /> : <Navbar /> }
-            <NavbarTop />
+            {/* <NavbarTop /> */}
             <Container>
               <Switch>
                 <Route exact path="/" component={Posts} />
