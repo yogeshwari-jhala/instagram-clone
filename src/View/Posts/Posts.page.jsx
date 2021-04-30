@@ -2,6 +2,8 @@ import React from 'react';
 import Cards from './Post.component';
 import Grid from '@material-ui/core/Grid';
 import Stories from '../../Components/Stories/Stories';
+import InfoSection from '../../Components/InfoSection/InfoSection';
+import Suggestion from '../../Components/Suggestion/Suggestion';
 class Posts extends React.Component{
     constructor (props) {
         super(props)
@@ -16,13 +18,14 @@ class Posts extends React.Component{
                     </Grid>
                     <Grid item xs={5}>
                         <Stories/>
-                    <Cards/>
+                        <Cards/>
                     </Grid>
                     <Grid item xs={3}>
-                        <h1>hii</h1>
+                        <InfoSection/>
+                        <Suggestion/>
                     </Grid>
                     <Grid item xs={1}>
-                        <h1>hii</h1>
+                        
                     </Grid>
                 </Grid>
                 
