@@ -10,6 +10,7 @@ import Posts from "../View/Posts/Posts.page";
 import Navbar from "../Components/Navbar/Navbar.component";
 import NavbarTop from "../Components/Navbar/NavbarTop.component";
 import { Container } from "@material-ui/core";
+import Profile from '../View/Profile/Profile';
 
 let theme = createMuiTheme({
   palette: {
@@ -47,7 +48,7 @@ export default class Router extends Component {
             <Container>
               <Switch>
                 <Route exact path="/" component={Posts} />
-                {/* <Route path="/path" component={View} /> */}
+                <Route path="/profile" component={Profile} />
               </Switch>
             </Container>
           </BrowserRouter>
