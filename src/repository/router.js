@@ -11,7 +11,8 @@ import Navbar from "../Components/Navbar/Navbar.component";
 import NavbarTop from "../Components/Navbar/NavbarTop.component";
 import { Container } from "@material-ui/core";
 import Profile from '../View/Profile/Profile';
-
+import CreatePosts from '../Components/CreatePosts/CreatePosts';
+import CreateStories from '../Components/CreatePosts/CreateStories';
 
 let theme = createMuiTheme({
   palette: {
@@ -69,6 +70,8 @@ export default class Router extends Component {
               <Switch>
                 <Route exact path="/" component={Posts} />
                 <Route path="/profile" component={Profile} />
+                <Route path="/createposts" component={CreatePosts} />
+                <Route path="/createstories" component={CreateStories} />
               </Switch>
             </Container>
           </BrowserRouter>
