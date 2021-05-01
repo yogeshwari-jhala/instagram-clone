@@ -46,11 +46,7 @@ return(
     <Card className={classes.root}>
       
     <div className={classes.avatar}>
-       <div>
-         <IconButton>
-        <AddAPhotoIcon className={classes.large1}/>
-        </IconButton>
-      </div>
+       
       <div>
       <Avatar alt="Remy Sharp" src={avatar} className={classes.large}/>
       <div className={classes.username}>ProfileName</div>
