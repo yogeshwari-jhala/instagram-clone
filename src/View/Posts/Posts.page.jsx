@@ -8,7 +8,6 @@ import Suggestion from '../../Components/Posts/Suggestion';
 class Posts extends React.Component{
     constructor (props) {
         super(props)
-        
     }
 
     render(){
