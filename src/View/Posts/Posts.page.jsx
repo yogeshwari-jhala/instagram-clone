@@ -2,8 +2,8 @@ import React from 'react';
 import Cards from '../../Components/Posts/Post.component';
 import Grid from '@material-ui/core/Grid';
 import Stories from '../../Components/Stories/Stories';
-import InfoSection from '../../Components/InfoSection/InfoSection';
-import Suggestion from '../../Components/Suggestion/Suggestion';
+import InfoSection from '../../Components/Posts/InfoSection';
+import Suggestion from '../../Components/Posts/Suggestion';
 
 class Posts extends React.Component{
     constructor (props) {
