@@ -25,6 +25,7 @@ class Posts extends React.Component{
                     </Grid>
                     <Grid item lg={3} className="MnWb5" md={3} >
                         <InfoSection/>
+
                         <Suggestion/>
                     </Grid>
                 </Grid>
