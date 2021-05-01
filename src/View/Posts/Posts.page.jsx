@@ -1,7 +1,7 @@
 import React from 'react';
 import Cards from '../../Components/Posts/Post.component';
 import {Grid, Paper} from '@material-ui/core';
-// import Stories from '../../Components/Stories/Stories';
+import Stories from '../../Components/Stories/Stories';
 import InfoSection from '../../Components/Posts/InfoSection';
 import Suggestion from '../../Components/Posts/Suggestion';
 
@@ -16,8 +16,8 @@ class Posts extends React.Component{
                 <Grid container spacing={2}>
                     <Grid item lg={2} md={2}>
                     </Grid>
-                    <Grid item lg={6} md={6} sm={12} xm={12}>
-                        {/* <Stories/> */}
+                    <Grid item lg={6} md={6} sm={12} xm={12} className="MnWb4">
+                        <Stories/>
                         <Cards/>
                     </Grid>
                     <Grid item lg={1}>

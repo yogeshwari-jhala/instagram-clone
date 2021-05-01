@@ -11,6 +11,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import SearchIcon from '@material-ui/icons/Search';
 
+import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
+
 export const useStyles = makeStyles((theme) => ({
   navbarcolor: theme.palette.type,
   text: {
@@ -42,6 +44,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   flexBtn: {
     flex: 'auto',
+  },
+  small:{
+    width: theme.spacing(3),
+    height: theme.spacing(3),
   }
 }));
 
@@ -67,9 +73,23 @@ export default function Navbar() {
           <IconButton color="inherit"  className={classes.flexBtn}>
             <FavoriteIcon />
           </IconButton>
-          <IconButton edge="end" color="inherit" className={classes.flexBtn}>
-            <Avatar />
-          </IconButton>
+          <GlobalUserState.Consumer>
+          {
+            (context) => (
+              <IconButton edge="end" color="inherit" className={classes.flexBtn}>
+                {context.profilePicture ? (
+                <Avatar
+                  className={classes.small}
+                  alt={context.displayName}
+                  src={context.profilePicture}
+                />
+              ) : (
+                <Avatar className={classes.small} />
+              )}
+              </IconButton>
+            )
+          }
+          </GlobalUserState.Consumer>
         </Toolbar>
       </AppBar>
     </React.Fragment>

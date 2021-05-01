@@ -137,7 +137,7 @@ export default function NavbarTop() {
               ) : (
                 <Avatar className={classes.small} />
               )}
-               {context.displayName ? context.displayName : 'Profile'}
+               Profile
             </MenuItem>
             <MenuItem onClick={handleMenuClose}>
               <BookmarkBorderIcon className={classes.marginIcon} />
