@@ -27,7 +27,7 @@ input1:{
 }
 }));
 
-export default function CreatePosts() {
+export default function CreateStories() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState(null);

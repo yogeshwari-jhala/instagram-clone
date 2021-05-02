@@ -64,8 +64,8 @@ export default function CreatePosts() {
             firestore.collection("posts").add({
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               caption: caption,
-              imageUrl: url,
-              username: username,
+              post: url,
+              uid: 'Yogeshwari',
             });
             setProgress(0);
             setCaption("");
@@ -105,7 +105,7 @@ export default function CreatePosts() {
         <Fade in={open}>
           <div className={classes.paper}>
               <FormControl>
-              <center><h1>Upload Story</h1></center >
+              <center><h1>Upload Posts</h1></center >
              
             <OutlinedInput className={classes.input}
                 type="text"

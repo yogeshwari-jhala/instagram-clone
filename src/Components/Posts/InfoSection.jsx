@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import avatar from '../../assets/pp1.png';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Paper } from '@material-ui/core';
 class InfoSection extends Component {
     render() { 
         return ( 
             <div>
                 <Container>
-                    <br/>
-                    <Grid container spacing={3} style={{fontSize:'12px'}}>
+                   <Paper>
+                   <Grid container spacing={3} style={{fontSize:'12px'}}>
                     <Grid item xs={3} >
                         <Avatar src={avatar}/>
                     </Grid>
@@ -20,6 +20,7 @@ class InfoSection extends Component {
                         <div >Switch</div>
                      </Grid>
                 </Grid>
+                   </Paper>
                 </Container>
             </div> 
         );
