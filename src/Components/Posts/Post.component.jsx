@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -13,6 +13,8 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import CommentIcon from "@material-ui/icons/Comment";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import "./Post.scss";
+import Repository from '../../repository/Repository'
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "56.25%", // 16:9
   },
   avatar: {
-    backgroundColor: red[500],
     width: theme.spacing(4),
     height: theme.spacing(4),
   },
@@ -32,24 +33,51 @@ const useStyles = makeStyles((theme) => ({
 
 export const Post = (props) => {
   const classes = useStyles();
-  console.log(props)
   const { id, doc } = props;
+  const [user, setUser] = useState(false)
 
+  useEffect(() => {
+    new Repository().getDocumentSnapshot('users/'+doc.uid).then(
+      collectionRefData => {
+        collectionRefData.docRef.onSnapshot(snapshot => {
+          setUser(snapshot.data())
+        })
+      }
+    ).catch(
+      data => {
+        console.log(data);
+      }
+    )
+  }, [])
+
+  const likePost = () =>{
+    
+  }
+
+  const commentPost = () =>{
+    
+  }
+
+  const savepost = () =>{
+    
+  }
+
+  if(user)
   return (
     <div>
       <Card className={classes.root} id="card" key={id}>
         <CardHeader
           className="card_header"
           avatar={
-            <Avatar aria-label="post" className={classes.avatar} src={''}/>
+            <Avatar aria-label="post" className={classes.avatar} src={user.profilePicture}/>
           }
-          title={doc.uid}
+          title={user.displayName}
         />
         <div className="hover column">
           <div>
             <figure>
-              <CardActionArea>
-                <CardMedia className={classes.media} image={doc.post} />
+              <CardActionArea onDoubleClick={likePost}>
+                <CardMedia className={classes.media} image={doc.post}/>
               </CardActionArea>
             </figure>
           </div>
@@ -57,13 +85,13 @@ export const Post = (props) => {
 
         <CardContent>
           <Typography variant="p" color="initial">
-            <IconButton aria-label="add to favorites" component="p">
+            <IconButton aria-label="add to favorites" component="p" onClick={likePost}>
               <FavoriteIcon />
             </IconButton>
-            <IconButton aria-label="add to favorites" component="p">
+            <IconButton aria-label="add to favorites" component="p"  onClick={commentPost}>
               <CommentIcon className="comment" />
             </IconButton>
-            <IconButton aria-label="save image" component="p">
+            <IconButton aria-label="save image" component="p"  onClick={savepost}>
               <BookmarkIcon />
             </IconButton>
           </Typography>
@@ -76,4 +104,5 @@ export const Post = (props) => {
       </Card>
     </div>
   );
+  return <div/>
 }
