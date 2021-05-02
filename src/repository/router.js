@@ -63,7 +63,6 @@ export default class Router extends Component {
       <div>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-          {console.log(width)}
           {(width > 700) ? <NavbarTop /> : <Navbar /> }
             {/* <NavbarTop /> */}
             <Container>
