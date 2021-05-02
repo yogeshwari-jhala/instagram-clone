@@ -41,7 +41,7 @@ export default function CreateStories() {
 
   const handleUpload = () => {
     console.log("upload");
-    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    const uploadTask = storage.ref(`stories/${image.name}`).put(image);
     uploadTask.on(
       "statechanged",
       (snapshot) => {
@@ -56,14 +56,14 @@ export default function CreateStories() {
       },
       () => {
         storage
-          .ref("images")
+          .ref("stories")
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-            firestore.collection("posts").add({
+            firestore.collection("stories").add({
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               imageUrl: url,
-              username: username,
+              uid: "yogeshwari",
             });
             setProgress(0);
             setImage(null);

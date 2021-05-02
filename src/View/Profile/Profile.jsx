@@ -47,7 +47,6 @@ const tileData = [
       {
         img : image6,
       },
-
      ];
 export default function Profile(){
     const classes = useStyles();
