@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Cards from '../../Components/Posts/Post.component';
-import Grid from '@material-ui/core/Grid';
+import {Grid, Paper} from '@material-ui/core';
 import Stories from '../../Components/Stories/Stories';
 import InfoSection from '../../Components/Posts/InfoSection';
 import Suggestion from '../../Components/Posts/Suggestion';
@@ -33,7 +33,7 @@ class Posts extends React.Component{
                 <Grid container spacing={2}>
                     <Grid item lg={2} md={2}>
                     </Grid>
-                    <Grid item lg={6} md={6} sm={12} xm={12}>
+                    <Grid item lg={6} md={6} sm={12} xm={12} className="MnWb4">
                         <Stories/>
                         {this.state.posts.map((post) => {
                         <Cards key={post.postId} id={post.postId} caption={post.caption} imageUrl={post.post} timestamp={post.timestamp} username={post.uid}/>
@@ -42,9 +42,10 @@ class Posts extends React.Component{
                     <Grid item lg={1}>
                     </Grid>
                     <Grid item lg={3} className="MnWb5" md={3} >
-                        <InfoSection/>
-
-                        <Suggestion/>
+                        <Paper>
+                            <InfoSection/>
+                            <Suggestion/>
+                        </Paper>
                     </Grid>
                 </Grid>
             </div>
