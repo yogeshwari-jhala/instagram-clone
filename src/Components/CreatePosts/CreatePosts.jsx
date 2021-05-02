@@ -65,7 +65,7 @@ export default function CreatePosts() {
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               caption: caption,
               post: url,
-              uid: 'Yogeshwari',
+              uid: "yogeshwari",
             });
             setProgress(0);
             setCaption("");
@@ -114,7 +114,7 @@ export default function CreatePosts() {
                 value={caption}
              />
             
-            <OutlinedInput className={classes.input} type="file" onChange={handleChange} />
+            <input className={classes.input} type="file" onChange={handleChange} />
             <LinearProgress variant="determinate" value={progress} className={classes.input1} max="100"/>
            
             <Button className={classes.input} onClick={handleUpload}>Upload</Button>

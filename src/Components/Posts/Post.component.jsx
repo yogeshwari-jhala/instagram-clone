@@ -15,6 +15,7 @@ import CommentIcon from '@material-ui/icons/Comment';
 import Container from '@material-ui/core/Container';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import './Post.scss';
+import { firestore } from '../../repository/Firestore/Firestore.config';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,9 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Cards() {
+export default function Cards({username, caption, imageUrl}) {
   const classes = useStyles();
-  
 
 
   return (
@@ -47,7 +47,7 @@ export default function Cards() {
                 I
               </Avatar>
             }
-            title="Username"
+            title={username}
           />
         <div className="hover column">
             <div>
@@ -55,7 +55,7 @@ export default function Cards() {
                 <CardActionArea>
                     <CardMedia
                         className={classes.media}
-                        image={Peacock}
+                        image={imageUrl}
                     />
                     </CardActionArea>
                 </figure>
@@ -76,7 +76,7 @@ export default function Cards() {
             </Typography>
             <Typography variant="p">
               <Box fontStyle="oblique" m={1}>
-                Here is our caption
+                {caption}
               </Box>
             </Typography>
           </CardContent>

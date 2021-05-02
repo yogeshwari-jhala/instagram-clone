@@ -17,10 +17,10 @@ class Posts extends React.Component{
     }
 
     async componentDidMount() {
-        firestore.collection("posts").onSnapshot((snapshot) => {
+        firestore.collection("posts").orderBy('timestamp','desc').onSnapshot((snapshot) => {
           this.setState({
               posts:snapshot.docs.map((doc) => ({
-                postId: doc.id,
+                id: doc.id,
                 post: doc.data(),
               }))
           })
@@ -36,7 +36,7 @@ class Posts extends React.Component{
                     <Grid item lg={6} md={6} sm={12} xm={12} className="MnWb4">
                         <Stories/>
                         {this.state.posts.map((post) => {
-                        <Cards key={post.postId} id={post.postId} caption={post.caption} imageUrl={post.post} timestamp={post.timestamp} username={post.uid}/>
+                        <Cards key={post.id} postId={post.id} caption={post.caption} imageUrl={post.post} username={post.uid}/>
                     })}
                     </Grid>
                     <Grid item lg={1}>

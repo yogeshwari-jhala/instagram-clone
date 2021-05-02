@@ -104,7 +104,7 @@ export default function CreateStories() {
               <FormControl>
 
              <center><h1>Upload Story</h1></center >
-            <OutlinedInput className={classes.input} type="file" onChange={handleChange} />
+            <input className={classes.input} type="file" onChange={handleChange} />
             <LinearProgress variant="determinate" value={progress} className={classes.input1} max="100"/>
             <Button className={classes.input} onClick={handleUpload}>Upload</Button>
             </FormControl>

@@ -9,6 +9,7 @@ import image3 from '../../assets/d3.jpg'
 import image4 from '../../assets/d4.jpg'
 import image5 from '../../assets/d5.jpg'
 import image6 from '../../assets/d6.jpg'
+import { Avatar, Card, IconButton } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -21,6 +22,11 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
   },
+  avatar:{
+    width:"160px",
+    height:"160px",
+    borderRadius:"120px",
+  }
 }));
 const tileData = [
        {
@@ -50,8 +56,7 @@ export default function Profile(){
         <div className={classes.root}>
         <div style={{display:"flex", justifyContent:"space-around", margin:"18px 10px", borderBottom:"1px solid grey"}}> 
                 <div>
-                   <img style={{width:"160px",height:"160px",borderRadius:"120px"}}
-                    src="https://yt3.ggpht.com/ytc/AAUvwnhFY3d8qOpu-KNOALIzsq4ECnGwTPwWmVVpkdM9Fg=s900-c-k-c0x00ffffff-no-rj"/>
+                   <Avatar className={classes.avatar}/>
                 </div>
                 <div style={{display:"flex",flexDirection:"column", justifyContent:"space-between", width:"50%"}}>
                 <div>
@@ -65,13 +70,11 @@ export default function Profile(){
                     </div>
             </div>
             <div>
-         <GridList cellHeight={600} cellWidth={600} className={classes.gridList}>
-         <GridListTile key="Subheader" cols={2} style={{ height: '100%' }}>
-          <ListSubheader component="div">December</ListSubheader>
-         </GridListTile>
-            {tileData.map((tile) => (
-             <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
+         <GridList cols={3} className={classes.gridList}>
+         {tileData.map((tile) => (
+         <GridListTile key={tile.img} style={{ height: '300px', width:'400px' }}>
+           
+           <img src={tile.img} alt={tile.title} style={{ height: '300px', width:'400px' }}/>
           </GridListTile>
         ))}
       </GridList>
