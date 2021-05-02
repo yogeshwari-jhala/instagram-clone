@@ -23,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   avatar:{
-    width:"160px",
-    height:"160px",
+    width:"100px",
+    height:"100px",
     borderRadius:"120px",
   }
 }));
@@ -54,18 +54,18 @@ export default function Profile(){
     return(
 
         <div className={classes.root}>
-        <div style={{display:"flex", justifyContent:"space-around", margin:"18px 10px", borderBottom:"1px solid grey"}}> 
-                <div>
+        <div style={{display:"flex", justifyContent:"space-around", margin:"18px 10px", borderBottom:"1px solid grey"}}>  
+                  <div>
                    <Avatar className={classes.avatar}/>
-                </div>
+                   </div>
                 <div style={{display:"flex",flexDirection:"column", justifyContent:"space-between", width:"50%"}}>
-                <div>
-                    <h1>Yogeshwari Jhala</h1>
+                <div style={{fontSize: "30px"}}>
+                    Yogeshwari Jhala
                 </div>
-                <div style={{display:"flex",flexDirection:"row", margin:"2%"}}>
-                        <h2 style={{padding:"5%"}}>20 Posts</h2>
-                        <h2 style={{padding:"5%"}}>20 Followers</h2>
-                        <h2 style={{padding:"5%"}}>20 Following</h2>
+                <div style={{display:"flex",flexDirection:"row", margin:"1%"}}>
+                        <h3 style={{paddingRight:"5%"}}>20 Posts</h3>
+                        <h3 style={{paddingRight:"5%"}}>20 Followers</h3>
+                        <h3 style={{paddingRight:"5%"}}>20 Following</h3>
                     </div>
                     </div>
             </div>
