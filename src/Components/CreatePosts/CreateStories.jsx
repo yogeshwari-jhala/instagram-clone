@@ -6,7 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import firebase from "firebase";
 import { Button, OutlinedInput, LinearProgress, FormControl } from "@material-ui/core";
 import { storage, firestore} from "../../repository/Firestore/Firestore.config";
-
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -24,7 +24,10 @@ const useStyles = makeStyles((theme) => ({
 },
 input1:{
     marginTop:40,
-}
+},
+button:{
+  margin: theme.spacing(10),
+},
 }));
 
 export default function CreateStories() {
@@ -83,10 +86,15 @@ export default function CreateStories() {
   return (
     <div>
     
-      <Button
-       type="button" onClick={handleOpen}>
+    <Button
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        onClick={handleOpen}
+        startIcon={<CloudUploadIcon />}
+      >
         Upload Story
-        </Button>
+      </Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -106,7 +114,15 @@ export default function CreateStories() {
              <center><h1>Upload Story</h1></center >
             <input className={classes.input} type="file" onChange={handleChange} />
             <LinearProgress variant="determinate" value={progress} className={classes.input1} max="100"/>
-            <Button className={classes.input} onClick={handleUpload}>Upload</Button>
+            <Button
+            variant="contained"
+            color="primary"
+            className={classes.input}
+            onClick={handleUpload}
+            startIcon={<CloudUploadIcon />}
+          >
+            Upload 
+          </Button>
             </FormControl>
           </div>
         </Fade>
