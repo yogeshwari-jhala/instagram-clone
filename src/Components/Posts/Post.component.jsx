@@ -79,9 +79,11 @@ export const Post = (props) => {
   const likePost = () => {
     setLiked(!liked)
     if(liked){
-      new Repository().deleteDocument('users/'+luser+'/postLiked/')
+      new Repository().deleteDocument('users/'+luser+'/postLiked/', id)
+      new Repository().deleteDocument('posts/'+id+'/likedBy/', luser)
     }else{
       new Repository().createDocumentExistingUID('users/'+luser+'/postLiked', {}, id)
+      new Repository().createDocumentExistingUID('posts/'+id+'/likedBy/', {}, luser)
     }
   };
 
