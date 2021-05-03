@@ -43,5 +43,18 @@ export default class Repository {
    */
   linkEmailAccount = async (email, password) => new FirebaseAuthProvider().linkEmailAccount(email, password);
 
+  /**
+   * 
+   * @param {String} path 
+   * @returns {Promise}
+   */
   getDocumentSnapshot = async (path) => new FirestoreProvider().getDocumentSnapshot(path); 
+
+  /**
+   * 
+   * @param {String} path 
+   * @param {Array} data 
+   * @returns 
+   */
+  createDocument = async(path, data) => new FirestoreProvider().createDocument(path, data);
 }
