@@ -57,4 +57,20 @@ export default class Repository {
    * @returns 
    */
   createDocument = async(path, data) => new FirestoreProvider().createDocument(path, data);
+
+  /**
+   * 
+   * @param {String} path 
+   * @param {object} data 
+   * @returns {Promise}
+   */
+  createDocumentExistingUID = async(path, data, uid) => new FirestoreProvider().createDocumentExistingUID(path, data, uid);
+
+  /**
+   * 
+   * @param {String} path 
+   * @param {String} uid 
+   * @returns {Promise}
+   */
+  deleteDocument = async(path, uid) => new FirestoreProvider().deleteDocument(path, uid) 
 }

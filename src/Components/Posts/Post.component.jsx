@@ -1,21 +1,26 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import { Typography, Box } from "@material-ui/core";
-import { Pink } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import {
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  Avatar,
+  IconButton,
+  Typography,
+  Box,
+  CardActionArea,
+  Menu,
+  MenuItem
+} from "@material-ui/core";
 
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import CommentIcon from "@material-ui/icons/Comment";
-import CardActionArea from "@material-ui/core/CardActionArea";
+
 import "./Post.scss";
-import Repository from '../../repository/Repository'
-import { useState } from "react";
+import Repository from "../../repository/Repository";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,80 +35,156 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(4),
     height: theme.spacing(4),
   },
+  colorpink: {
+    color: '#ec1fe2'
+  }
 }));
 
 export const Post = (props) => {
   const classes = useStyles();
-  const { id, doc } = props;
-  const [user, setUser] = useState(false)
+  const { id, doc, luser } = props;
+  const [user, setUser] = useState(false);
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const isMenuOpen = Boolean(anchorEl);
+  const [liked, setLiked] = useState(false);
+
+  console.log(luser)
   useEffect(() => {
-    new Repository().getDocumentSnapshot('users/'+doc.uid).then(
-      collectionRefData => {
-        collectionRefData.docRef.onSnapshot(snapshot => {
-          setUser(snapshot.data())
-        })
-      }
-    ).catch(
-      data => {
+    new Repository()
+      .getDocumentSnapshot("users/" + doc.uid)
+      .then((collectionRefData) => {
+        collectionRefData.docRef.onSnapshot((snapshot) => {
+          setUser(snapshot.data());
+        });
+      })
+      .catch((data) => {
         console.log(data);
-      }
-    )
-  }, [])
+      });
+      
+      new Repository().getDocumentSnapshot('users/'+luser+'/postLiked/'+id).then(
+        (collectionRefData) => {
+          collectionRefData.docRef.onSnapshot((snapshot) => {
+            if(snapshot.data()==undefined)
+              setLiked(false)
+            else
+              setLiked(true)
+          })
+        }).catch(
+        (data) => {
+          console.warn('Error : '+data)
+        })
+  }, []);
 
-  const likePost = () =>{
-    
-  }
+  const likePost = () => {
+    setLiked(!liked)
+    if(liked){
+      new Repository().deleteDocument('users/'+luser+'/postLiked/')
+    }else{
+      new Repository().createDocumentExistingUID('users/'+luser+'/postLiked', {}, id)
+    }
+  };
 
-  const commentPost = () =>{
-    
-  }
+  const commentPost = () => { };
 
-  const savepost = () =>{
-    
-  }
+  const savepost = () => { };
 
-  if(user)
-  return (
-    <div>
-      <Card className={classes.root} id="card" key={id}>
-        <CardHeader
-          className="card_header"
-          avatar={
-            <Avatar aria-label="post" className={classes.avatar} src={user.profilePicture}/>
-          }
-          title={user.displayName}
-        />
-        <div className="hover column">
-          <div>
-            <figure>
-              <CardActionArea onDoubleClick={likePost}>
-                <CardMedia className={classes.media} image={doc.post}/>
-              </CardActionArea>
-            </figure>
-          </div>
-        </div>
+  const handleoptionMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-        <CardContent>
-          <Typography variant="p" color="initial">
-            <IconButton aria-label="add to favorites" component="p" onClick={likePost}>
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton aria-label="add to favorites" component="p"  onClick={commentPost}>
-              <CommentIcon className="comment" />
-            </IconButton>
-            <IconButton aria-label="save image" component="p"  onClick={savepost}>
-              <BookmarkIcon />
-            </IconButton>
-          </Typography>
-          <Typography variant="p">
-            <Box fontStyle="oblique" m={1}>
-              {doc.caption}
-            </Box>
-          </Typography>
-        </CardContent>
-      </Card>
-    </div>
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const menuId = "primary-option-menu";
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{ vertical: "bottom", horizontal: "bottom" }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{ vertical: "bottom", horizontal: "bottom" }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+      className={classes.menuPlacement}
+    >
+      <MenuItem >
+        Go to post
+      </MenuItem>
+      <MenuItem>
+        Unfollow
+      </MenuItem>
+      <MenuItem >
+        Delete Post
+      </MenuItem>
+    </Menu>
   );
-  return <div/>
-}
+  if (user)
+    return (
+      <div>
+        <Card className={classes.root} id="card" key={id}>
+          <CardHeader
+            className="card_header"
+            avatar={
+              <Avatar
+                aria-label="post"
+                className={classes.avatar}
+                src={user.profilePicture}
+              />
+            }
+            action={
+              <IconButton aria-label="options"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleoptionMenuOpen}>
+                <MoreVertIcon />
+              </IconButton>
+            }
+            title={user.displayName}
+          />
+          <div className="hover column">
+              <figure>
+                <CardActionArea onDoubleClick={likePost}>
+                  <CardMedia className={classes.media} image={doc.post} />
+                </CardActionArea>
+              </figure>
+          </div>
+
+          <CardContent>
+            <Typography variant="p" color="initial">
+              <IconButton
+                aria-label="add to favorites"
+                component="p"
+                onClick={likePost}
+              >
+                <FavoriteIcon className={liked ? classes.colorpink : ''}/>
+              </IconButton>
+              <IconButton
+                aria-label="add to favorites"
+                component="p"
+                onClick={commentPost}
+              >
+                <CommentIcon className="comment" />
+              </IconButton>
+              <IconButton
+                aria-label="save image"
+                component="p"
+                onClick={savepost}
+              >
+                <BookmarkIcon />
+              </IconButton>
+            </Typography>
+            <Typography variant="p">
+              <Box fontStyle="oblique" m={1}>
+                {doc.caption}
+              </Box>
+            </Typography>
+          </CardContent>
+        </Card>
+
+        {renderMenu}
+      </div>
+    );
+  return <div />;
+};
