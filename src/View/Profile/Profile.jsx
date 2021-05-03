@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -9,7 +9,10 @@ import image3 from '../../assets/d3.jpg'
 import image4 from '../../assets/d4.jpg'
 import image5 from '../../assets/d5.jpg'
 import image6 from '../../assets/d6.jpg'
-import { Avatar, Card, IconButton } from '@material-ui/core';
+import ProfileImage from '../../assets/d4.jpg'
+import {Paper,Grid, Avatar, Card, Button } from '@material-ui/core';
+import { firestore } from "../../repository/Firestore/Firestore.config";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -23,9 +26,20 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   avatar:{
-    width:"100px",
-    height:"100px",
-    borderRadius:"120px",
+    width: theme.spacing(20),
+    height: theme.spacing(20),
+  },
+  number:{
+    paddingRight: '8%',
+    fontSize: '115%',
+    fontWeight: 'bold',
+  },
+  g1:{
+    display:"flex", 
+    flexDirection:"row", 
+    padding:'5%', 
+    margin:'5%'
+
   }
 }));
 const tileData = [
@@ -47,28 +61,47 @@ const tileData = [
       {
         img : image6,
       },
+      {
+        img: image1,
+      },
      ];
 export default function Profile(){
     const classes = useStyles();
-    return(
+    const [profileImage , setProfileImage] =useState(false);
 
-        <div className={classes.root}>
-        <div style={{display:"flex", justifyContent:"space-around", margin:"18px 10px", borderBottom:"1px solid grey"}}>  
-                  <div>
-                   <Avatar className={classes.avatar}/>
-                   </div>
-                <div style={{display:"flex",flexDirection:"column", justifyContent:"space-between", width:"50%"}}>
-                <div style={{fontSize: "30px"}}>
-                    Yogeshwari Jhala
-                </div>
-                <div style={{display:"flex",flexDirection:"row", margin:"1%"}}>
-                        <h3 style={{paddingRight:"5%"}}>20 Posts</h3>
-                        <h3 style={{paddingRight:"5%"}}>20 Followers</h3>
-                        <h3 style={{paddingRight:"5%"}}>20 Following</h3>
-                    </div>
-                    </div>
-            </div>
-            <div>
+    useEffect(() => {
+      firestore.collection('profileImage').orderBy('timestamp','desc').onSnapshot(snapshot => {
+        setProfileImage(snapshot.docs.map(doc => ({
+          id: doc.id,
+          profileImage: doc.data()
+        })));
+      })
+  }, []);
+    return(
+      <div>
+      <Paper>
+        <Grid className={classes.g1}>
+          <Grid>
+             <Avatar className={classes.avatar} src={profileImage.imageUrl}/>
+            </Grid>
+          <Grid style={{ margin :'0 auto'}}>
+            <Grid style={{ fontSize:'300%'}}>Yogeshwari Jhala
+            <Button
+            variant="contained"
+            color="primary"
+            className={classes.input}
+          > Follow</Button>
+            </Grid>
+            <Grid style={{display:"flex", flexDirection:"row"}}>
+            <p className={classes.number}>20 Posts</p>
+            <p className={classes.number}>20 Followers</p>
+            <p className={classes.number}>20 Following</p>
+            </Grid>
+          </Grid>
+        </Grid>
+
+      </Paper>
+        <Paper>
          <GridList cols={3} className={classes.gridList}>
          {tileData.map((tile) => (
          <GridListTile key={tile.img} style={{ height: '300px', width:'400px' }}>
@@ -77,7 +110,7 @@ export default function Profile(){
           </GridListTile>
         ))}
       </GridList>
-      </div>
+      </Paper>
     </div>
     )
 
