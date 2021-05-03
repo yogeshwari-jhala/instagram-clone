@@ -36,7 +36,12 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(4),
   },
   colorpink: {
-    color: '#ec1fe2'
+    color: '#ec1f85'
+  },
+  cardFooter: {
+    marginTop: '-20px',
+    marginBottom: '10px',
+    height: '4vh',
   }
 }));
 
@@ -154,7 +159,7 @@ export const Post = (props) => {
           </div>
 
           <CardContent>
-            <Typography variant="p" color="initial">
+          <div className={classes.cardFooter}>
               <IconButton
                 aria-label="add to favorites"
                 component="p"
@@ -162,6 +167,7 @@ export const Post = (props) => {
               >
                 <FavoriteIcon className={liked ? classes.colorpink : ''}/>
               </IconButton>
+              
               <IconButton
                 aria-label="add to favorites"
                 component="p"
@@ -176,12 +182,10 @@ export const Post = (props) => {
               >
                 <BookmarkIcon />
               </IconButton>
-            </Typography>
-            <Typography variant="p">
-              <Box fontStyle="oblique" m={1}>
-                {doc.caption}
-              </Box>
-            </Typography>
+            </div>
+            <div>
+              <div style={{marginLeft:15}}><b>{user.displayName} </b> {doc.caption}</div>
+            </div>
           </CardContent>
         </Card>
 
