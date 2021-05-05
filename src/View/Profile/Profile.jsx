@@ -27,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
   },
   avatar:{
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    width: '60%',
+    height: '120px',
   },
   number:{
     paddingRight: '8%',

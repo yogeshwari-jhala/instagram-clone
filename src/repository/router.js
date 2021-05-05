@@ -13,7 +13,7 @@ import { Container } from "@material-ui/core";
 import Profile from '../View/Profile/Profile';
 import CreatePosts from '../Components/CreatePosts/CreatePosts';
 import CreateStories from '../Components/CreatePosts/CreateStories';
-import Settings from '../Components/Settings/Settings';
+import Settings from '../View/Settings/Settings';
 import ProfileImageUpload from "../Components/ProfileImageUpload/ProfileImageUpload";
 
 let theme = createMuiTheme({
