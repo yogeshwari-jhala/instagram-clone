@@ -12,7 +12,8 @@ import image6 from '../../assets/d6.jpg'
 import ProfileImage from '../../assets/d4.jpg'
 import {Paper,Grid, Avatar, Card, Button } from '@material-ui/core';
 import { firestore } from "../../repository/Firestore/Firestore.config";
-
+import Repository from '../../repository/Repository';
+import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -67,22 +68,22 @@ const tileData = [
      ];
 export default function Profile(){
     const classes = useStyles();
-    const [profileImage , setProfileImage] =useState(false);
-
-    useEffect(() => {
-      firestore.collection('profileImage').orderBy('timestamp','desc').onSnapshot(snapshot => {
-        setProfileImage(snapshot.docs.map(doc => ({
-          id: doc.id,
-          profileImage: doc.data()
-        })));
-      })
-  }, []);
+      
     return(
       <div>
       <Paper>
         <Grid className={classes.g1}>
           <Grid>
-             <Avatar className={classes.avatar} src={profileImage.imageUrl}/>
+            <GlobalUserState.Consumer>{
+              (context) => (
+                 context.profilePicture ? (
+                  <Avatar className={classes.avatar} src={user.profilePicture}/>
+                ):(
+                  <Avatar className={classes.avatar}/>
+                )
+             )
+            }
+          </GlobalUserState.Consumer>
             </Grid>
           <Grid style={{ margin :'0 auto'}}>
             <Grid style={{ fontSize:'300%'}}>Yogeshwari Jhala

@@ -13,7 +13,7 @@ import { Container } from "@material-ui/core";
 import Profile from '../View/Profile/Profile';
 import CreatePosts from '../Components/CreatePosts/CreatePosts';
 import CreateStories from '../Components/CreatePosts/CreateStories';
-import UserDetails from '../Components/UserDetails/UserDetails';
+import Settings from '../Components/Settings/Settings';
 import ProfileImageUpload from "../Components/ProfileImageUpload/ProfileImageUpload";
 
 let theme = createMuiTheme({
@@ -74,7 +74,7 @@ export default class Router extends Component {
                 <Route path="/createposts" component={CreatePosts} />
                 <Route path="/createstories" component={CreateStories} />
                 <Route path="/profileimageupload" component={ProfileImageUpload}/>
-                <Route path="/userdetails" component={UserDetails}/>
+                <Route path="/settings" component={Settings}/>
               </Switch>
             </Container>
           </BrowserRouter>

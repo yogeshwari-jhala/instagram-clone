@@ -63,10 +63,9 @@ export default function ProfileImageUpload() {
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-            firestore.collection("profileImage").add({
+            firestore.collection("users/"+doc.uid).add({
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              imageUrl: url,
-              uid: "yogeshwari",
+              profilePicture : url,
             });
             setProgress(0);
             setImage(null);
