@@ -11,7 +11,8 @@ import {
   Box,
   CardActionArea,
   Menu,
-  MenuItem
+  MenuItem,
+  Modal,
 } from "@material-ui/core";
 
 import FavoriteIcon from "@material-ui/icons/Favorite";
@@ -19,6 +20,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import CommentIcon from "@material-ui/icons/Comment";
 
+import { Comments } from "./Comment.component";
 import "./Post.scss";
 import Repository from "../../repository/Repository";
 
@@ -36,13 +38,13 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(4),
   },
   colorpink: {
-    color: '#ec1f85'
+    color: "#ec1f85",
   },
   cardFooter: {
-    marginTop: '-20px',
-    marginBottom: '10px',
-    height: '4vh',
-  }
+    marginTop: "-20px",
+    marginBottom: "10px",
+    height: "4vh",
+  },
 }));
 
 export const Post = (props) => {
@@ -53,8 +55,8 @@ export const Post = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const [liked, setLiked] = useState(false);
+  const [modalOpen, setModal] = useState(false);
 
-  console.log(luser)
   useEffect(() => {
     new Repository()
       .getDocumentSnapshot("users/" + doc.uid)
@@ -66,35 +68,40 @@ export const Post = (props) => {
       .catch((data) => {
         console.log(data);
       });
-      
-      new Repository().getDocumentSnapshot('users/'+luser+'/postLiked/'+id).then(
-        (collectionRefData) => {
-          collectionRefData.docRef.onSnapshot((snapshot) => {
-            if(snapshot.data()==undefined)
-              setLiked(false)
-            else
-              setLiked(true)
-          })
-        }).catch(
-        (data) => {
-          console.warn('Error : '+data)
-        })
+
+    new Repository()
+      .getDocumentSnapshot("users/" + luser + "/postLiked/" + id)
+      .then((collectionRefData) => {
+        collectionRefData.docRef.onSnapshot((snapshot) => {
+          if (snapshot.data() == undefined) setLiked(false);
+          else setLiked(true);
+        });
+      })
+      .catch((data) => {
+        console.warn("Error : " + data);
+      });
   }, []);
 
   const likePost = () => {
-    setLiked(!liked)
-    if(liked){
-      new Repository().deleteDocument('users/'+luser+'/postLiked/', id)
-      new Repository().deleteDocument('posts/'+id+'/likedBy/', luser)
-    }else{
-      new Repository().createDocumentExistingUID('users/'+luser+'/postLiked', {}, id)
-      new Repository().createDocumentExistingUID('posts/'+id+'/likedBy/', {}, luser)
+    setLiked(!liked);
+    if (liked) {
+      new Repository().deleteDocument("users/" + luser + "/postLiked/", id);
+      new Repository().deleteDocument("posts/" + id + "/likedBy/", luser);
+    } else {
+      new Repository().createDocumentExistingUID(
+        "users/" + luser + "/postLiked",
+        {},
+        id
+      );
+      new Repository().createDocumentExistingUID(
+        "posts/" + id + "/likedBy/",
+        {},
+        luser
+      );
     }
   };
 
-  const commentPost = () => { };
-
-  const savepost = () => { };
+  const savepost = () => {};
 
   const handleoptionMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -103,6 +110,8 @@ export const Post = (props) => {
   const handleMenuClose = () => {
     setAnchorEl(null);
   };
+
+  const toggleModal = () => setModal(!modalOpen)
 
   const menuId = "primary-option-menu";
   const renderMenu = (
@@ -116,15 +125,9 @@ export const Post = (props) => {
       onClose={handleMenuClose}
       className={classes.menuPlacement}
     >
-      <MenuItem >
-        Go to post
-      </MenuItem>
-      <MenuItem>
-        Unfollow
-      </MenuItem>
-      <MenuItem >
-        Delete Post
-      </MenuItem>
+      <MenuItem>Go to post</MenuItem>
+      <MenuItem>Unfollow</MenuItem>
+      <MenuItem>Delete Post</MenuItem>
     </Menu>
   );
   if (user)
@@ -141,37 +144,39 @@ export const Post = (props) => {
               />
             }
             action={
-              <IconButton aria-label="options"
+              <IconButton
+                aria-label="options"
                 aria-controls={menuId}
                 aria-haspopup="true"
-                onClick={handleoptionMenuOpen}>
+                onClick={handleoptionMenuOpen}
+              >
                 <MoreVertIcon />
               </IconButton>
             }
             title={user.displayName}
           />
           <div className="hover column">
-              <figure>
-                <CardActionArea onDoubleClick={likePost}>
-                  <CardMedia className={classes.media} image={doc.post} />
-                </CardActionArea>
-              </figure>
+            <figure>
+              <CardActionArea onDoubleClick={likePost}>
+                <CardMedia className={classes.media} image={doc.post} />
+              </CardActionArea>
+            </figure>
           </div>
 
           <CardContent>
-          <div className={classes.cardFooter}>
+            <div className={classes.cardFooter}>
               <IconButton
                 aria-label="add to favorites"
                 component="p"
                 onClick={likePost}
               >
-                <FavoriteIcon className={liked ? classes.colorpink : ''}/>
+                <FavoriteIcon className={liked ? classes.colorpink : ""} />
               </IconButton>
-              
+
               <IconButton
                 aria-label="add to favorites"
                 component="p"
-                onClick={commentPost}
+                onClick={toggleModal}
               >
                 <CommentIcon className="comment" />
               </IconButton>
@@ -184,11 +189,19 @@ export const Post = (props) => {
               </IconButton>
             </div>
             <div>
-              <div style={{marginLeft:15}}><b>{user.displayName} </b> {doc.caption}</div>
+              <div style={{ marginLeft: 15 }}>
+                <b>{user.displayName} </b> {doc.caption}
+              </div>
             </div>
           </CardContent>
         </Card>
-
+        <Modal
+          open={modalOpen}
+          onClose={toggleModal}
+          aria-labelledby="comment-modal"
+        >   
+          <Comments id="comment-modal" post={id} usestyling={true} loginuser={luser}/>
+        </Modal>
         {renderMenu}
       </div>
     );
