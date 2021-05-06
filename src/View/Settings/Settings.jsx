@@ -5,7 +5,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Grid,Paper } from "@material-ui/core";
+import { Grid,Paper,Container } from "@material-ui/core";
 import UserDetails from '../../Components/UserDetails/UserDetails';
 import PasswordChange from '../../Components/PasswordChange/PasswordChange';
 import PrivacyAndTheme from '../../Components/PrivacyAndTheme/PrivacyAndTheme';
@@ -51,15 +51,11 @@ const useStyles = makeStyles((theme) => ({
   },
   tabs: {
     border: `1px solid ${theme.palette.divider}`,
-    margin: theme.spacing(4),
-    
+    margin: '10%',
   },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(5),
-    margin: theme.spacing(1),
-  },
+  tab:{
+    fontSize:'100%',
+  }
 }));
 function Settings(){
   const classes = useStyles();
@@ -71,12 +67,12 @@ function Settings(){
 
     return(
         <div>
-          <Paper className={classes.paper}>
+          
             <h1>Settings</h1>
-          <Grid container spacing={1}>
+          <Grid container spacing={0}>
         <Grid item xs={4} className={classes.grid}>
   
-          <Tabs
+          <Tabs container
         orientation="vertical"
         variant="scrollable"
         value={value}
@@ -84,13 +80,14 @@ function Settings(){
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Edit User Details" {...a11yProps(0)} />
-        <Tab label="Change Password" {...a11yProps(1)} />
-        <Tab label="Privacy And Theme" {...a11yProps(2)} />
+        <Tab className={classes.tab} label="Edit User Details" {...a11yProps(0)} />
+        <Tab className={classes.tab} label="Change Password" {...a11yProps(1)} />
+        <Tab className={classes.tab} label="Privacy And Theme" {...a11yProps(2)} />
       </Tabs>
 
         </Grid>
-        <Grid item xs={5} >
+
+        <Grid item xs={4} >
           <TabPanel value={value} index={0}>
                 <UserDetails/>
           </TabPanel>
@@ -102,7 +99,8 @@ function Settings(){
           </TabPanel>
         </Grid> 
         </Grid>
-        </Paper>
+        
+      
       </div>
     )
 }
