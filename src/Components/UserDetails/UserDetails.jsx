@@ -6,8 +6,8 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.background.paper,
       boxShadow: theme.shadows[5],
       minWidth : 200,
-      margin : theme.spacing(5),
-      padding : theme.spacing(1),
+      margin : theme.spacing(2),
+      padding : theme.spacing(2),
     },
       formControl: {
         minWidth: 120,

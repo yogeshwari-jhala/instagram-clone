@@ -2,19 +2,19 @@ import React from 'react';
 import { Paper, Button, TextField, FormControl } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
-    paper: {
-      backgroundColor: theme.palette.background.paper,
-      boxShadow: theme.shadows[5],
-      minWidth : 200,
-      margin : theme.spacing(5),
-      padding : theme.spacing(1),
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    minWidth : 200,
+    margin : theme.spacing(2),
+    padding : theme.spacing(2),
+  },
+    formControl: {
+      minWidth: 120,
     },
-      formControl: {
-        minWidth: 120,
-      },
-      outlined:{
-         margin : '20px',
-      }
+    outlined:{
+       margin : '20px',
+    }
   }));
 function PasswordChange(){
     const classes = useStyles();
