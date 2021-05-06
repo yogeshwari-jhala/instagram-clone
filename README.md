@@ -8,7 +8,7 @@ We are using 2 frontend designing plugins :
 
 [Bootstrap]
 
-[React-Bootstrap]
+[Material UI]
 
 ## Available Scripts
 
