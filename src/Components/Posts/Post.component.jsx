@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
 export const Post = (props) => {
   const classes = useStyles();
   const { id, doc, luser } = props;
+  const [userid, setUserid] = useState('')
   const [user, setUser] = useState(false);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -65,6 +66,7 @@ export const Post = (props) => {
       .then((collectionRefData) => {
         collectionRefData.docRef.onSnapshot((snapshot) => {
           setUser(snapshot.data());
+          setUserid(snapshot.id)
         });
       })
       .catch((data) => {
@@ -154,7 +156,7 @@ export const Post = (props) => {
     >
       <MenuItem>Go to post</MenuItem>
       <MenuItem>Unfollow</MenuItem>
-      <MenuItem>Delete Post</MenuItem>
+      {userid===luser &&  <MenuItem>Delete Post</MenuItem>}
     </Menu>
   );
   if (user)
@@ -180,7 +182,7 @@ export const Post = (props) => {
                 <MoreVertIcon />
               </IconButton>
             }
-            title={user.displayName}
+            title={user.username}
           />
           <div className="hover column">
             <figure>
