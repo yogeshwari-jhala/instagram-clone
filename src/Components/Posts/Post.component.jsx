@@ -118,7 +118,7 @@ export const Post = (props) => {
   };
 
   const savepost = () => {
-    setLiked(!saved);
+    setsaved(!saved);
     if (saved) {
       new Repository().deleteDocument("users/" + luser + "/saved/", id);
     } else {
