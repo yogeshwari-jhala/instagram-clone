@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -6,6 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import firebase from "firebase";
 import { Button, OutlinedInput, LinearProgress, FormControl } from "@material-ui/core";
 import { storage, firestore} from "../../repository/Firestore/Firestore.config";
+import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -35,6 +36,7 @@ export default function ProfileImageUpload() {
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
+  const id = useContext(GlobalUserState);
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -63,8 +65,7 @@ export default function ProfileImageUpload() {
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-            firestore.collection("users/"+doc.uid).add({
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            firestore.collection("users/"+ id.id).update({
               profilePicture : url,
             });
             setProgress(0);

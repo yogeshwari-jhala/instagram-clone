@@ -1,10 +1,10 @@
-import {React, useState} from 'react';
+import {React, useContext, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import firebase from "firebase";
-import { Button, OutlinedInput, LinearProgress, FormControl } from "@material-ui/core";
+import { Button, OutlinedInput, LinearProgress, FormControl, useScrollTrigger } from "@material-ui/core";
 import { storage, firestore} from "../../repository/Firestore/Firestore.config";
 import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
@@ -37,7 +37,7 @@ export default function CreatePosts() {
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
-
+  const id = useContext(GlobalUserState);
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
@@ -46,6 +46,7 @@ export default function CreatePosts() {
 
   const handleUpload = () => {
     console.log("upload");
+    
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "statechanged",
@@ -69,7 +70,7 @@ export default function CreatePosts() {
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               caption: caption,
               post: url,
-              uid: "yogeshwari",
+              uid: id.id,
             });
             setProgress(0);
             setCaption("");
