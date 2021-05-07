@@ -132,6 +132,10 @@ export const Post = (props) => {
     }
   };
 
+  const deletePost = () =>{
+    new Repository().deleteDocument('posts', id);
+  }
+
   const handleoptionMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -155,8 +159,8 @@ export const Post = (props) => {
       className={classes.menuPlacement}
     >
       <MenuItem>Go to post</MenuItem>
-      <MenuItem>Unfollow</MenuItem>
-      {userid===luser &&  <MenuItem>Delete Post</MenuItem>}
+      {userid!==luser &&  <MenuItem>Unfollow</MenuItem>}
+      {userid===luser &&  <MenuItem onClick={deletePost}>Delete Post</MenuItem>}
     </Menu>
   );
   if (user)
@@ -220,7 +224,7 @@ export const Post = (props) => {
             </div>
             <div>
               <div style={{ marginLeft: 15 }}>
-                <b>{user.displayName} </b> {doc.caption}
+                <b>{user.username} </b> {doc.caption}
               </div>
             </div>
           </CardContent>
