@@ -14,7 +14,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
 
 export const useStyles = makeStyles((theme) => ({
-  navbarcolor: theme.palette.type,
+  navbarcolor: {
+    backgroundColor:theme.palette.type
+  },
   text: {
     padding: theme.spacing(2, 2, 0),
   },
