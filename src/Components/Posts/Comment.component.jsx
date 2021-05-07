@@ -91,9 +91,7 @@ const Comments = (props) => {
         .then((collectionRefData) => {
           collectionRefData.docRef.onSnapshot((snapshot) => {
             if (snapshot.data() !== undefined) {
-              if (snapshot.data().displayName)
-                setUser(snapshot.data().displayName);
-              else setUser(snapshot.data().email);
+              setUser(snapshot.data().username);
               setImage(snapshot.data().profilePicture);
             }
           });

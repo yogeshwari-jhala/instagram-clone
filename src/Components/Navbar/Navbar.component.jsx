@@ -14,9 +14,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
 
 export const useStyles = makeStyles((theme) => ({
-  navbarcolor: {
-    backgroundColor:theme.palette.type
-  },
   text: {
     padding: theme.spacing(2, 2, 0),
   },
@@ -60,7 +57,7 @@ export default function Navbar() {
     <React.Fragment>
       <CssBaseline />
       
-      <AppBar position="fixed" color={classes.navbarcolor} className={classes.appBar}>
+      <AppBar position="fixed" color="inherit" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="open drawer"  className={classes.flexBtn}>
             <HomeIcon/>
