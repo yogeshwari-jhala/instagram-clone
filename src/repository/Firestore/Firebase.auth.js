@@ -41,6 +41,7 @@ export default class FirebaseAuthProvider {
         country: null,
         dateOfBirth: null,
         email: email,
+        username: email.split("@")[0],
         gender: null,
         latitude: null,
         longitute: null,
