@@ -7,8 +7,6 @@ import {
   CardContent,
   Avatar,
   IconButton,
-  Typography,
-  Box,
   CardActionArea,
   Menu,
   MenuItem,
@@ -19,6 +17,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import CommentIcon from "@material-ui/icons/Comment";
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
 import { Comments } from "./Comment.component";
 import "./Post.scss";
@@ -54,7 +53,10 @@ export const Post = (props) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
+
   const [liked, setLiked] = useState(false);
+  const [saved, setsaved] = useState(false);
+
   const [modalOpen, setModal] = useState(false);
 
   useEffect(() => {
@@ -69,7 +71,21 @@ export const Post = (props) => {
         console.log(data);
       });
 
+      // .Post saved or not
     new Repository()
+      .getDocumentSnapshot("users/" + luser + "/saved/" + id)
+      .then((collectionRefData) => {
+        collectionRefData.docRef.onSnapshot((snapshot) => {
+          if (snapshot.data() == undefined) setsaved(false);
+          else setsaved(true);
+        });
+      })
+      .catch((data) => {
+        console.warn("Error : " + data);
+      });
+
+      // .Post liked or not
+      new Repository()
       .getDocumentSnapshot("users/" + luser + "/postLiked/" + id)
       .then((collectionRefData) => {
         collectionRefData.docRef.onSnapshot((snapshot) => {
@@ -101,7 +117,18 @@ export const Post = (props) => {
     }
   };
 
-  const savepost = () => {};
+  const savepost = () => {
+    setLiked(!saved);
+    if (saved) {
+      new Repository().deleteDocument("users/" + luser + "/saved/", id);
+    } else {
+      new Repository().createDocumentExistingUID(
+        "users/" + luser + "/saved",
+        {},
+        id
+      );
+    }
+  };
 
   const handleoptionMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -185,7 +212,8 @@ export const Post = (props) => {
                 component="p"
                 onClick={savepost}
               >
-                <BookmarkIcon />
+                {saved ? <BookmarkIcon /> : <BookmarkBorderIcon/> }
+                
               </IconButton>
             </div>
             <div>

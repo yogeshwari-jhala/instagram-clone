@@ -162,7 +162,7 @@ export default function NavbarTop() {
       <GlobalUserState.Consumer>
         {(context) => (
           <>
-            <AppBar position="fixed" color={classes.navbarcolor}>
+            <AppBar position="fixed" color="inherit" >
               <Container className={classes.containerClass}>
                 <Toolbar variant="dense">
                   <img
