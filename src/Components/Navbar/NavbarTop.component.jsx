@@ -20,7 +20,8 @@ import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined"
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
-
+import {BrowserRouter, Link} from 'react-router-dom';
+import Router from '../../repository/router';
 import Repository from "../../repository/Repository";
 import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
 
@@ -126,6 +127,7 @@ export default function NavbarTop() {
       <GlobalUserState.Consumer>
         {(context) => (
           <>
+          <Link to="/Profile">
             <MenuItem onClick={handleMenuClose}>
               {context.profilePicture ? (
                 <Avatar
@@ -138,14 +140,17 @@ export default function NavbarTop() {
               )}
                Profile
             </MenuItem>
+            </Link>
             <MenuItem onClick={handleMenuClose}>
               <BookmarkBorderIcon className={classes.marginIcon} />
               Saved
             </MenuItem>
+            <Link to="/userdetails">
             <MenuItem onClick={handleMenuClose}>
               <SettingsOutlinedIcon className={classes.marginIcon} />
               Settings
             </MenuItem>
+            </Link>
             <Divider />
             <MenuItem onClick={(handleMenuClose, Logout)}>
               <PowerSettingsNewIcon className={classes.marginIcon} />
@@ -186,15 +191,21 @@ export default function NavbarTop() {
                   </div>
                   <div className={classes.root} />
                   <div className={classes.sectionDesktop}>
+                    <Link to="/">
                     <IconButton color="inherit" className={classes.flexBtn}>
                       <HomeIcon />
                     </IconButton>
+                    </Link>
+                    <Link>
                     <IconButton color="inherit" className={classes.flexBtn}>
                       <ChatIcon />
                     </IconButton>
+                    </Link>
+                    <Link>
                     <IconButton color="inherit" className={classes.flexBtn}>
                       <FavoriteIcon />
                     </IconButton>
+                    </Link>
                     <IconButton
                       edge="end"
                       color="inherit"

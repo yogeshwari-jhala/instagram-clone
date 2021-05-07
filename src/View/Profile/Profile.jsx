@@ -26,9 +26,10 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
   },
-  avatar:{
-    width: '60%',
-    height: '120px',
+  avatar: {
+    width: '100px',
+    height: '100px',
+    borderRadius: '150%'
   },
   number:{
     paddingRight: '8%',
@@ -77,7 +78,7 @@ export default function Profile(){
             <GlobalUserState.Consumer>{
               (context) => (
                  context.profilePicture ? (
-                  <Avatar className={classes.avatar} src={user.profilePicture}/>
+                  <Avatar className={classes.avatar} src={context.profilePicture}/>
                 ):(
                   <Avatar className={classes.avatar}/>
                 )
