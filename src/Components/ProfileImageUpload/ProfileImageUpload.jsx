@@ -36,7 +36,7 @@ export default function ProfileImageUpload() {
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
-  const id = useContext(GlobalUserState);
+  const user = useContext(GlobalUserState);
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -65,8 +65,8 @@ export default function ProfileImageUpload() {
           .child(image.name)
           .getDownloadURL()
           .then((url) => {
-            firestore.collection("users/"+ id.id).update({
-              profilePicture : url,
+            firestore.collection('users').doc(user.id).update({
+              profilePicture: url,
             });
             setProgress(0);
             setImage(null);
