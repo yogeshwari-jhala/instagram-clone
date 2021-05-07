@@ -191,21 +191,20 @@ export default function NavbarTop() {
                   </div>
                   <div className={classes.root} />
                   <div className={classes.sectionDesktop}>
-                    <Link to="/">
+                    
                     <IconButton color="inherit" className={classes.flexBtn}>
                       <HomeIcon />
                     </IconButton>
-                    </Link>
-                    <Link>
+                   
+                    
                     <IconButton color="inherit" className={classes.flexBtn}>
                       <ChatIcon />
                     </IconButton>
-                    </Link>
-                    <Link>
+                   
                     <IconButton color="inherit" className={classes.flexBtn}>
                       <FavoriteIcon />
                     </IconButton>
-                    </Link>
+                    
                     <IconButton
                       edge="end"
                       color="inherit"
