@@ -28,7 +28,6 @@ const Logout = () => {
   new Repository().signOut();
 };
 const useStyles = makeStyles((theme) => ({
-  navbarcolor: theme.palette.type,
   root: {
     flexGrow: 1,
   },
