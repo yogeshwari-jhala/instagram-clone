@@ -35,7 +35,6 @@ export default class FirebaseAuthProvider {
       const createdAt = Date.now();
 
       await userRef.set({
-        is_admin: false,
         displayName,
         city: null,
         country: null,
@@ -43,9 +42,6 @@ export default class FirebaseAuthProvider {
         email: email,
         username: email.split("@")[0],
         gender: null,
-        latitude: null,
-        longitute: null,
-        phoneNumber: null,
         profilePicture: photoURL,
         timestamp: createdAt,
         password: false,
