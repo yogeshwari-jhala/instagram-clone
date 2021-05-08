@@ -38,8 +38,7 @@ class Posts extends React.Component {
               <div>
                 <Grid container spacing={2}>
                   <Grid item lg={2} md={2}></Grid>
-                  <Grid item lg={6} md={6} sm={12} xm={12} className="MnWb4">
-                    <Stories />
+                  <Grid item lg={6} md={6} sm={12} xm={12} className="MnWb1">
 
                     <Container maxWidth="sm">
                       {this.state.posts.map((post) => {

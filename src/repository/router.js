@@ -90,9 +90,7 @@ export default class Router extends Component {
         <ThemeProvider theme={appliedTheme}>
           <BrowserRouter>
           {(width > 700) ? <NavbarTop /> : <Navbar /> }
-          <button onClick={this.darkmode}>dark</button>
-            {/* <NavbarTop /> */}
-            {/* <NavbarTop /> */}
+          
             <Container>
               <Switch>
                 <Route exact path="/" component={Posts} />
