@@ -85,3 +85,4 @@ const Notify = props =>{
         </Paper>
     )
 }
+export default Notify;

@@ -24,6 +24,7 @@ import {BrowserRouter, Link} from 'react-router-dom';
 import Router from '../../repository/router';
 import Repository from "../../repository/Repository";
 import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
+import { MicNoneTwoTone } from "@material-ui/icons";
 
 const Logout = () => {
   new Repository().signOut();
@@ -97,6 +98,10 @@ const useStyles = makeStyles((theme) => ({
   marginIcon: {
     marginRight: theme.spacing(1),
   },
+  link:{
+    textDecoration: 'none',
+    color: 'black',
+  }
 }));
 
 export default function NavbarTop() {
@@ -127,7 +132,7 @@ export default function NavbarTop() {
       <GlobalUserState.Consumer>
         {(context) => (
           <>
-          <Link to="/Profile">
+          <Link to="/Profile" className={classes.link}>
             <MenuItem onClick={handleMenuClose}>
               {context.profilePicture ? (
                 <Avatar
@@ -145,7 +150,7 @@ export default function NavbarTop() {
               <BookmarkBorderIcon className={classes.marginIcon} />
               Saved
             </MenuItem>
-            <Link to="/userdetails">
+            <Link to="/settings" className={classes.link}>
             <MenuItem onClick={handleMenuClose}>
               <SettingsOutlinedIcon className={classes.marginIcon} />
               Settings
@@ -193,16 +198,16 @@ export default function NavbarTop() {
                   <div className={classes.sectionDesktop}>
                     
                     <IconButton color="inherit" className={classes.flexBtn}>
-                      <HomeIcon />
+                      <Link to="/" className={classes.link}><HomeIcon /></Link>
                     </IconButton>
                    
                     
                     <IconButton color="inherit" className={classes.flexBtn}>
-                      <ChatIcon />
+                    <Link to="/" className={classes.link}><ChatIcon /></Link>
                     </IconButton>
                    
                     <IconButton color="inherit" className={classes.flexBtn}>
-                      <FavoriteIcon />
+                    <Link to="/notification" className={classes.link}><FavoriteIcon /></Link>
                     </IconButton>
                     
                     <IconButton
