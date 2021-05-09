@@ -16,7 +16,8 @@ import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
 import { Container, Divider } from "@material-ui/core";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Repository from "../../repository/Repository";
 import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
 
 
@@ -136,7 +137,10 @@ export default function Navbar() {
   return (
     <React.Fragment>
       <CssBaseline />
-      
+      <GlobalUserState.Consumer>
+      {
+            (context) => (
+              <>
       <AppBar position="fixed" color="inherit" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="open drawer"  className={classes.flexBtn}>
@@ -152,9 +156,8 @@ export default function Navbar() {
           <IconButton color="inherit"  className={classes.flexBtn}>
             <FavoriteIcon />
           </IconButton>
-          <GlobalUserState.Consumer>
-          {
-            (context) => (
+          
+          
               <IconButton edge="end" color="inherit" 
               className={classes.flexBtn} 
               aria-controls={menuId} 
@@ -171,11 +174,14 @@ export default function Navbar() {
                 <Avatar className={classes.small} />
               )}
               </IconButton>
-            )
-          }
-          </GlobalUserState.Consumer>
         </Toolbar>
       </AppBar>
+      <div className={classes.offset} />
+            {renderMenu}
+      </>
+      )
+          }
+          </GlobalUserState.Consumer>
     </React.Fragment>
   );
 }
