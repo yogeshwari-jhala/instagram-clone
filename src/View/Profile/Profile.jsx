@@ -10,6 +10,7 @@ import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import { Post } from "../../Components/Posts/Post.component";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -110,6 +111,29 @@ export default function Profile() {
     setValue(newValue);
   };
 
+  const SavedPost = (props) => {
+    const id = props.id
+    const [savedposts, setsavedpost] = useState(false)
+    useEffect(()=>{
+      new Repository().getDocumentSnapshot('posts/'+id).then((collectionRefData) => {
+        collectionRefData.docRef.onSnapshot((snapshot) => {
+          setsavedpost(snapshot)
+        });
+      })
+      .catch((data) => {
+        console.warn("Error : " + data);
+      });
+    }, [])
+
+    if(savedposts)
+    return(     
+      <GridListTile key={savedposts.id} cols={1}>         
+        <Post key={savedposts.id} id={savedposts.id} doc={savedposts.data()} luser={user.id}/>
+                </GridListTile>
+    )
+    return('')
+  }
+
   return (
     <div>
       <div>
@@ -163,16 +187,22 @@ export default function Profile() {
           </Tabs>
         </AppBar>
         <TabPanel value={value} index={0}>
-          <GridList cellHeight={160} cols={3}>
+          <GridList cellHeight={360} cols={3}>
             {posts.map((post) => (
-              <GridListTile key={post.data().post} cols={1}>
-                <img src={post.data().post} alt={post.data().caption} />
+              <GridListTile key={post.data().post} cols={1}>            
+                <Post key={post.id} id={post.id} doc={post.data()} luser={user.id}/>
               </GridListTile>
             ))}
           </GridList>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Saved
+        <GridList cellHeight={360} cols={3}>
+            {saved.map((saved) => {
+              return( 
+                  <SavedPost id={saved.id} key={saved.id}/>
+                )
+            })}
+          </GridList>
         </TabPanel>
       </div>
     </div>
