@@ -108,19 +108,19 @@ function UserDetails(){
             />
           
           <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label" className={classes.outlined}>Gender</InputLabel>
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={gnder}
-          className={classes.outlined}
-          onChange={e => setGender(e.target.value)}
-          label="Gender"
-        >
+           <InputLabel id="demo-simple-select-outlined-label" className={classes.outlined}>Gender</InputLabel>
+            <Select
+                labelId="demo-simple-select-outlined-label"
+                id="demo-simple-select-outlined"
+                value={gnder}
+                className={classes.outlined}
+                onChange={e => setGender(e.target.value)}
+                label="Gender"
+             >
           <MenuItem value="Male">Male</MenuItem>
           <MenuItem value="Female">Female</MenuItem>
-        </Select>
-      </FormControl>
+            </Select>
+          </FormControl>
             <Button onClick={handleChange}>Save</Button>
             </FormControl>
             </div>

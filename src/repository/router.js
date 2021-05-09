@@ -14,6 +14,7 @@ import CreateStories from '../Components/CreatePosts/CreateStories';
 import Settings from '../View/Settings/Settings';
 import ProfileImageUpload from "../Components/ProfileImageUpload/ProfileImageUpload";
 import Notify from "../Components/Notifications/Notify.component";
+import UserProfile from "../Components/UserProfile/UserProfile";
 
 export const light = {
   palette: {
@@ -94,7 +95,8 @@ export default class Router extends Component {
             <Container>
               <Switch>
                 <Route exact path="/" component={Posts} />
-                <Route path="/profile" component={Profile} />
+                <Route exact path="/profile" component={Profile} />
+                <Route path="/profile/:userid" component={UserProfile}/>
                 <Route path="/createposts" component={CreatePosts} />
                 <Route path="/createstories" component={CreateStories} />
                 <Route path="/profileimageupload" component={ProfileImageUpload}/>

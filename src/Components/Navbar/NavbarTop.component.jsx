@@ -11,7 +11,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ChatIcon from "@material-ui/icons/Chat";
-import { Container, Divider, Badge } from "@material-ui/core";
+import { Container, Divider } from "@material-ui/core";
 
 import instagram from "../../assets/instalogo.png";
 import OnelineBadge from '../OnlineBadge/OnelineBadge.component'
@@ -20,11 +20,11 @@ import AccountCircleOutlinedIcon from "@material-ui/icons/AccountCircleOutlined"
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
-import {BrowserRouter, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Router from '../../repository/router';
 import Repository from "../../repository/Repository";
 import { GlobalUserState } from "../../repository/Firestore/FirebaseAuth.page";
-import { MicNoneTwoTone } from "@material-ui/icons";
+
 
 const Logout = () => {
   new Repository().signOut();
